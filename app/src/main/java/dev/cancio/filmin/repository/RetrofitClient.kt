@@ -1,9 +1,16 @@
 package dev.cancio.filmin.repository
 
+import dev.cancio.filmin.data.MoviePagination
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface RetrofitClient {
+
+    @GET("discover/movie")
+    fun getMoviesList(@Query("api_key") api_key: String): Call<MoviePagination>
 
     companion object {
 
