@@ -1,4 +1,4 @@
-package dev.cancio.filmin.ui
+package dev.cancio.filmin.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

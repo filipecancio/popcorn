@@ -1,4 +1,4 @@
-package dev.cancio.filmin.ui
+package dev.cancio.filmin.ui.activity
 
 import android.content.Context
 import android.content.Intent
@@ -11,7 +11,7 @@ class DetailActivity : AppCompatActivity() {
 
     companion object{
         fun getStartIntent(context: Context, movie: Movie) =
-            Intent(context,DetailActivity::class.java)
+            Intent(context, DetailActivity::class.java)
                 .putExtra("MOVIE",movie)
     }
 
