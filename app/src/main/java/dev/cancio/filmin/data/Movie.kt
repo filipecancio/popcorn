@@ -1,6 +1,7 @@
 package dev.cancio.filmin.data
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class Movie(
@@ -26,7 +27,7 @@ data class Movie(
     val voteAverage: Double,
     @SerializedName("voteCount")
     val voteCount: Int,
-){
+):Serializable {
     val poster: String
         get() = "https://image.tmdb.org/t/p/original/$posterPath"
 
