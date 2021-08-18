@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/outline_chair_24.xml" value="0.1796875" />
         <entry key="app/src/main/res/drawable/movie_item_shape.xml" value="0.30833333333333335" />
         <entry key="app/src/main/res/drawable/rounded_shape.xml" value="0.30833333333333335" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16354166666666667" />
         <entry key="app/src/main/res/layout/movie_item.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_bar_menu.xml" value="0.2921875" />
       </map>
