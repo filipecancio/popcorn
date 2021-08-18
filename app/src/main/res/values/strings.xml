@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">filmin</string>
+    <string name="star_rating">star rating</string>
+    <string name="poster_description">poster about the movie</string>
 </resources>
