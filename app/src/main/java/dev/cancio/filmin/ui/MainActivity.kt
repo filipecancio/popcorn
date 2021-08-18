@@ -1,11 +1,11 @@
-package dev.cancio.filmin
+package dev.cancio.filmin.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import dev.cancio.filmin.R
 import dev.cancio.filmin.data.Movie
 import dev.cancio.filmin.repository.RetrofitClient
-import dev.cancio.filmin.service.MovieService
 
 class MainActivity : AppCompatActivity() {
 
