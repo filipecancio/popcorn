@@ -8,11 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import dev.cancio.filmin.R
 import dev.cancio.filmin.data.Movie
+import dev.cancio.filmin.ui.vh.MovieItemViewHolder
 
 class MovieItemAdapter(
     private val context: Context,
     private val movieList: List<Movie>
-) : RecyclerView.Adapter<MovieItemAdapter.MovieItemViewHolder>() {
+) : RecyclerView.Adapter<MovieItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieItemViewHolder {
         val view = LayoutInflater
@@ -28,14 +29,4 @@ class MovieItemAdapter(
     }
 
     override fun getItemCount(): Int = movieList.size
-
-    inner class MovieItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(movie:Movie){
-            itemView.apply {
-                val title = findViewById<TextView>(R.id.textView_title)
-
-                title.text = movie.title
-            }
-        }
-    }
 }
