@@ -15,8 +15,6 @@ class MainActivity : AppCompatActivity() {
     private val client by lazy { RetrofitClient.getInstance() }
     private val recyclerView by lazy { findViewById<RecyclerView>(R.id.main_recyclerview) }
 
-    val liveList = MutableLiveData<List<Movie>>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
