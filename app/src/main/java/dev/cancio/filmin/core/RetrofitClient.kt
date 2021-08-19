@@ -1,4 +1,4 @@
-package dev.cancio.filmin.repository
+package dev.cancio.filmin.core
 
 import dev.cancio.filmin.data.MoviePagination
 import retrofit2.Call
