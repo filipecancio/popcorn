@@ -8,7 +8,7 @@
     tools:context=".ui.activity.DetailActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView_detail_backdrop"
         android:layout_width="0dp"
         android:layout_height="400dp"
         android:background="@drawable/rounded_shape"
@@ -21,24 +21,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView_detail_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
         android:textColor="@color/grey"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_detail_backdrop"
         tools:text="cruella" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView_detail_overview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:textColor="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/textView_detail_title"
+        app:layout_constraintTop_toBottomOf="@+id/textView_detail_title"
         tools:text="Inteligente, criativa e determinada, Estella quer fazer um nome para si através de seus designs e acaba chamando a atenção da Baronesa Von Hellman. Entretanto, o relacionamento delas desencadeia um curso de eventos e revelações que fazem com que Estella abrace seu lado rebelde e se torne a Cruella, uma pessoa má, elegante e voltada para a vingança." />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

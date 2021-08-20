@@ -12,7 +12,7 @@ data class Movie(
     val overview: String,
     val popularity: Double,
     @SerializedName("backdrop_path")
-    val backdropPath: String,
+    private val backdropPath: String,
     @SerializedName("genre_ids")
     val genreIds: List<Int>,
     @SerializedName("original_language")
@@ -20,7 +20,7 @@ data class Movie(
     @SerializedName("original_title")
     val originalTitle: String,
     @SerializedName("poster_path")
-    val posterPath: String,
+    private val posterPath: String,
     @SerializedName("release_date")
     val releaseDate: String,
     @SerializedName("vote_average")
@@ -29,10 +29,10 @@ data class Movie(
     val voteCount: Int,
 ):Serializable {
     val poster: String
-        get() = "https://image.tmdb.org/t/p/original/$posterPath"
+        get() = "https://image.tmdb.org/t/p/original$posterPath"
 
     val backdrop: String
-        get() = "https://image.tmdb.org/t/p/original/$backdropPath"
+        get() = "https://image.tmdb.org/t/p/original$backdropPath"
 }
 
 val movies = listOf(
