@@ -4,7 +4,7 @@
 Popcorn is a TMDB catalog you can use to view all the best movies on demand, whether online or in theaters. For now the only feature that we have is to see a list of movies and your details when you select a movie.
 ![Capa (2)](https://user-images.githubusercontent.com/13178261/130252684-4b2569e4-eb58-411f-acaa-075db947af6e.png)
 
-### Prerquisites
+### Pre requisites
 - Android Studio (Make sure that you using Android Studio Artic Fox version before install the project)
 - Java 8 or more
 - Kotlin 1.5.21 or more
@@ -21,3 +21,8 @@ Without instructions yet. =(
 - [Retrofit](https://square.github.io/retrofit/)
 - [Glide](http://bumptech.github.io/glide/)
 - [The Movie Database API](https://developers.themoviedb.org/3)
+
+## Some references of projects
+
+- [tmdb-app](https://github.com/lucashenriqueos/tmdb-app)
+- [Android - Clean Architecture - Kotlin](https://github.com/android10/Android-CleanArchitecture-Kotlin)
