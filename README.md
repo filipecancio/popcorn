@@ -1,4 +1,7 @@
 ![Capa (1)](https://user-images.githubusercontent.com/13178261/130247332-b461fc1c-acf5-464c-bd14-8fb15be3f782.png)
+![CI on main](https://github.com/filipecancio/popcorn/actions/workflows/main_build.yml/badge.svg?branch=main)
+
+
 
 ## About
 Popcorn is a TMDB catalog you can use to view all the best movies on demand, whether online or in theaters. For now the only feature that we have is to see a list of movies and your details when you select a movie.
