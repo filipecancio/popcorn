@@ -28,11 +28,16 @@ data class Movie(
     @SerializedName("voteCount")
     val voteCount: Int,
 ):Serializable {
+
     val poster: String
-        get() = "https://image.tmdb.org/t/p/original$posterPath"
+        get() = "${BASE_URL}$posterPath"
 
     val backdrop: String
-        get() = "https://image.tmdb.org/t/p/original$backdropPath"
+        get() = "${BASE_URL}$backdropPath"
+
+    companion object {
+        private const val BASE_URL = "https://image.tmdb.org/t/p/original"
+    }
 }
 
 val movies = listOf(
