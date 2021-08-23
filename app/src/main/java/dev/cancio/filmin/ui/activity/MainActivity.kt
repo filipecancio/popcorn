@@ -1,11 +1,11 @@
 package dev.cancio.filmin.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.cancio.filmin.R
 import dev.cancio.filmin.data.movies
+import dev.cancio.filmin.databinding.ActivityMainBinding
 import dev.cancio.filmin.ui.adapter.MovieItemAdapter
 
 class MainActivity : AppCompatActivity() {
@@ -15,9 +15,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        recyclerView = findViewById(R.id.main_recyclerview)
+        recyclerView = binding.mainRecyclerview
         val manager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
 
         recyclerView.apply {

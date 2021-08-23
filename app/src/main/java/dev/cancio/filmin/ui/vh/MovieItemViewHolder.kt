@@ -1,34 +1,28 @@
 package dev.cancio.filmin.ui.vh
 
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import dev.cancio.filmin.R
 import dev.cancio.filmin.data.Movie
+import dev.cancio.filmin.databinding.MovieItemBinding
 import dev.cancio.filmin.ui.activity.DetailActivity
 
 class MovieItemViewHolder(
-    itemView: View
-) : View.OnClickListener, RecyclerView.ViewHolder(itemView) {
+    private val itemMovieBinding: MovieItemBinding
+) : View.OnClickListener, RecyclerView.ViewHolder(itemMovieBinding.root) {
 
     private lateinit var movie: Movie
 
     init {
-        itemView.setOnClickListener(this)
+        itemMovieBinding.root.setOnClickListener(this)
     }
 
     fun bind(movie: Movie) {
         this.movie = movie
-        itemView.apply {
-            val poster = findViewById<ImageView>(R.id.imageView_poster)
-            val title = findViewById<TextView>(R.id.textView_title)
-            val voteAverage = findViewById<TextView>(R.id.textView_rating)
-
-            Glide.with(this).load(movie.poster).into(poster)
-            title.text = movie.title
-            voteAverage.text = movie.voteAverage.toString()
+        itemMovieBinding.apply {
+            Glide.with(this.root).load(movie.poster).into(imageViewPoster)
+            textViewTitle.text = movie.title
+            textViewRating.text = movie.voteAverage.toString()
         }
     }
 

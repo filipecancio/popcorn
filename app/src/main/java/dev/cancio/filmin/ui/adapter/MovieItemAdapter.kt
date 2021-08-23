@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import dev.cancio.filmin.R
 import dev.cancio.filmin.data.Movie
+import dev.cancio.filmin.databinding.MovieItemBinding
 import dev.cancio.filmin.ui.vh.MovieItemViewHolder
 
 class MovieItemAdapter(
@@ -16,11 +17,9 @@ class MovieItemAdapter(
 ) : RecyclerView.Adapter<MovieItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieItemViewHolder {
-        val view = LayoutInflater
-            .from(context)
-            .inflate(R.layout.movie_item, parent, false)
+        val binding = MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return MovieItemViewHolder(view)
+        return MovieItemViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MovieItemViewHolder, position: Int) {
