@@ -3,7 +3,7 @@ package dev.cancio.filmin.ui.vh
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import dev.cancio.filmin.data.Movie
+import dev.cancio.filmin.data.model.Movie
 import dev.cancio.filmin.databinding.MovieItemBinding
 import dev.cancio.filmin.ui.activity.DetailActivity
 

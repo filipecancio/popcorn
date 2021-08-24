@@ -1,4 +1,4 @@
-package dev.cancio.filmin.data
+package dev.cancio.filmin.data.model
 
 import com.google.gson.annotations.SerializedName
 

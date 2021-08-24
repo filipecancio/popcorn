@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import dev.cancio.filmin.R
-import dev.cancio.filmin.data.Movie
+import dev.cancio.filmin.data.model.Movie
 import dev.cancio.filmin.databinding.MovieItemBinding
 import dev.cancio.filmin.ui.vh.MovieItemViewHolder
 

@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import dev.cancio.filmin.data.Movie
+import dev.cancio.filmin.data.model.Movie
 import dev.cancio.filmin.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {

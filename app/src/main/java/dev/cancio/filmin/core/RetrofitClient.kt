@@ -1,33 +1,33 @@
 package dev.cancio.filmin.core
 
-import dev.cancio.filmin.data.MoviePagination
+import dev.cancio.filmin.data.model.MoviePagination
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface RetrofitClient {
-
-    @GET("discover/movie")
-    fun getMoviesList(@Query("api_key") api_key: String): Call<MoviePagination>
+class RetrofitClient {
 
     companion object {
 
         private const val BASE_URL = "https://api.themoviedb.org/3/"
-        private val retrofitClient: RetrofitClient by lazy {
+        private val retrofitClient: Retrofit by lazy {
 
             val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
-            retrofit.create(retrofitClient::class.java)
-
+            retrofit
         }
 
-        fun getInstance(): RetrofitClient {
+        private fun getInstance(): Retrofit {
             return retrofitClient
+        }
+
+        fun <T> createService(servClass: Class<T>):T {
+            return getInstance().create(servClass)
         }
     }
 }
