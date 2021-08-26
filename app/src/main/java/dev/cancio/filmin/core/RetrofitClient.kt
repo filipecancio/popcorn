@@ -1,13 +1,10 @@
 package dev.cancio.filmin.core
 
 import dev.cancio.filmin.BuildConfig
-import dev.cancio.filmin.core.RetrofitClient.Companion.BASE_URL
-import dev.cancio.filmin.data.model.MoviePagination
-import retrofit2.Call
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Query
 
 class RetrofitClient {
 
@@ -18,6 +15,22 @@ class RetrofitClient {
 
             val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
+                .client(
+                    OkHttpClient.Builder()
+                        .addInterceptor {
+                            val req = it.request()
+                                .newBuilder()
+                                .addHeader("Authorization", BuildConfig.API_TOKEN)
+                                .build()
+                            it.proceed(req)
+                        }
+                        .addInterceptor(
+                            HttpLoggingInterceptor().apply {
+                                level = HttpLoggingInterceptor.Level.BODY
+                            }
+                        )
+                        .build()
+                )
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 

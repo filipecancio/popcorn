@@ -6,8 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.cancio.filmin.BuildConfig
-import dev.cancio.filmin.data.api.MovieApi
+import dev.cancio.filmin.data.repository.MovieRepository
 import dev.cancio.filmin.data.model.MoviePagination
 import dev.cancio.filmin.databinding.ActivityMainBinding
 import dev.cancio.filmin.ui.adapter.MovieItemAdapter
@@ -17,8 +16,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    private val API_KEY = BuildConfig.API_TOKEN
-    private  val movieApi by lazy { MovieApi() }
+    private  val movieApi by lazy { MovieRepository() }
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var movieItemAdapter: MovieItemAdapter
@@ -28,11 +26,11 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        getMoviesList(API_KEY,binding,this)
+        getMoviesList(binding,this)
     }
 
-    private fun getMoviesList(api_key: String,binding: ActivityMainBinding,context:Context){
-        movieApi.getMoviesList(api_key).enqueue(object : Callback<MoviePagination>{
+    private fun getMoviesList(binding: ActivityMainBinding,context:Context){
+        movieApi.getMoviesList().enqueue(object : Callback<MoviePagination>{
             override fun onResponse(
                 call: Call<MoviePagination>,
                 response: Response<MoviePagination>

@@ -1,15 +1,15 @@
-package dev.cancio.filmin.data.api
+package dev.cancio.filmin.data.repository
 
 import dev.cancio.filmin.core.RetrofitClient
 import dev.cancio.filmin.data.model.MoviePagination
 import dev.cancio.filmin.data.service.MovieService
 import retrofit2.Call
 
-class MovieApi {
+class MovieRepository {
 
     private val movieService = RetrofitClient.createService(MovieService::class.java)
 
-    fun getMoviesList(api_key: String): Call<MoviePagination> {
-        return movieService.getMoviesList(api_key)
+    fun getMoviesList(): Call<MoviePagination> {
+        return movieService.getMoviesList()
     }
 }
