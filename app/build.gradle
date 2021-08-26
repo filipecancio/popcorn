@@ -26,6 +26,7 @@ android {
         }
         debug {
             buildConfigField "String", "API_URL", tmdbBaseUrl
+            buildConfigField "String", "API_TOKEN", tmdbToken
         }
     }
     buildFeatures{

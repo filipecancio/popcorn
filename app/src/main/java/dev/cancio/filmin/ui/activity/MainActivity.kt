@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import dev.cancio.filmin.BuildConfig
 import dev.cancio.filmin.data.api.MovieApi
 import dev.cancio.filmin.data.model.MoviePagination
 import dev.cancio.filmin.databinding.ActivityMainBinding
@@ -16,7 +17,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    private val API_KEY = ""
+    private val API_KEY = BuildConfig.API_TOKEN
     private  val movieApi by lazy { MovieApi() }
 
     private lateinit var recyclerView: RecyclerView
