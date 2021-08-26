@@ -21,6 +21,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_URL", tmdbBaseUrl
+
+        }
+        debug {
+            buildConfigField "String", "API_URL", tmdbBaseUrl
         }
     }
     buildFeatures{

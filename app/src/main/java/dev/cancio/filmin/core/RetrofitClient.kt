@@ -1,5 +1,7 @@
 package dev.cancio.filmin.core
 
+import dev.cancio.filmin.BuildConfig
+import dev.cancio.filmin.core.RetrofitClient.Companion.BASE_URL
 import dev.cancio.filmin.data.model.MoviePagination
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -11,7 +13,7 @@ class RetrofitClient {
 
     companion object {
 
-        private const val BASE_URL = "https://api.themoviedb.org/3/"
+        private const val BASE_URL = BuildConfig.API_URL
         private val retrofitClient: Retrofit by lazy {
 
             val retrofit = Retrofit.Builder()
