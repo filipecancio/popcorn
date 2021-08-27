@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import dev.cancio.filmin.AppConfiguration
 import dev.cancio.filmin.data.repository.MovieRepository
 import dev.cancio.filmin.data.model.MoviePagination
 import dev.cancio.filmin.databinding.ActivityMainBinding
@@ -13,10 +14,12 @@ import dev.cancio.filmin.ui.adapter.MovieItemAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    private  val movieApi by lazy { MovieRepository() }
+    @Inject
+    lateinit var movieApi :MovieRepository
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var movieItemAdapter: MovieItemAdapter
@@ -25,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        AppConfiguration().getComponent().inject(this)
 
         getMoviesList(binding,this)
     }
