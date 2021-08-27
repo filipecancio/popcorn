@@ -8,5 +8,7 @@ import dev.cancio.filmin.data.repository.MovieRepository
 class MovieModule {
 
     @Provides
-    fun provideMovie() = MovieRepository()
+    fun provideMovie(): MovieRepository {
+        return MovieRepository()
+    }
 }
