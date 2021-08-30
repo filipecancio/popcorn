@@ -11,6 +11,8 @@ class RetrofitClient {
     companion object {
 
         private const val BASE_URL = BuildConfig.API_URL
+        private const val BASE_TOKEN = BuildConfig.API_TOKEN
+        
         private val retrofitClient: Retrofit by lazy {
 
             val retrofit = Retrofit.Builder()
@@ -20,7 +22,7 @@ class RetrofitClient {
                         .addInterceptor {
                             val req = it.request()
                                 .newBuilder()
-                                .addHeader("Authorization", BuildConfig.API_TOKEN)
+                                .addHeader("Authorization", BASE_TOKEN)
                                 .build()
                             it.proceed(req)
                         }
