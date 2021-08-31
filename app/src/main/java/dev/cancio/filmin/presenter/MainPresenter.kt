@@ -18,26 +18,28 @@ class MainPresenter(private val view:View): BasePresenter<MainPresenter.View>(vi
     lateinit var movieApi : MovieRepository
 
     fun getMoviesList(context: Context){
-        movieApi.getMoviesList().enqueue(object : Callback<MoviePagination> {
-            override fun onResponse(
-                call: Call<MoviePagination>,
-                response: Response<MoviePagination>
-            ) {
-                if(response.isSuccessful){
-                    val moviePagination = response.body()
-                    moviePagination?.apply {
-                        view.inflateRecyclerView(results)
+        launch {
+            movieApi.getMoviesList().enqueue(object : Callback<MoviePagination> {
+                override fun onResponse(
+                    call: Call<MoviePagination>,
+                    response: Response<MoviePagination>
+                ) {
+                    if(response.isSuccessful){
+                        val moviePagination = response.body()
+                        moviePagination?.apply {
+                            view.inflateRecyclerView(results)
+                        }
+                    }else{
+                        onError(context)
                     }
-                }else{
+                }
+
+                override fun onFailure(call: Call<MoviePagination>, t: Throwable) {
                     onError(context)
                 }
-            }
 
-            override fun onFailure(call: Call<MoviePagination>, t: Throwable) {
-                onError(context)
-            }
-
-        })
+            })
+        }
     }
 
     private fun onError(context: Context) {
