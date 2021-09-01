@@ -9,10 +9,13 @@ import dev.cancio.filmin.data.model.Movie
 import dev.cancio.filmin.databinding.ActivityMainBinding
 import dev.cancio.filmin.presenter.MainPresenter
 import dev.cancio.filmin.ui.adapter.MovieItemAdapter
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainPresenter.View {
 
-    private val presenter: MainPresenter by lazy{ MainPresenter(this) }
+    @Inject
+    lateinit var presenter: MainPresenter
+
     override val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     private lateinit var recyclerView: RecyclerView

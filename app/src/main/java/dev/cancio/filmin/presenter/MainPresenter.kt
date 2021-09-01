@@ -12,7 +12,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class MainPresenter(private val view:View): BasePresenter<MainPresenter.View>(view) {
+class MainPresenter @Inject constructor(private val view:View): BasePresenter<MainPresenter.View>(view) {
 
     @Inject
     lateinit var movieRepository: MovieRepository
