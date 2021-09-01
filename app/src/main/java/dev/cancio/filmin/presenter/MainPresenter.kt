@@ -15,11 +15,24 @@ import javax.inject.Inject
 class MainPresenter(private val view:View): BasePresenter<MainPresenter.View>(view) {
 
     @Inject
-    lateinit var movieApi : MovieRepository
+    lateinit var movieRepository: MovieRepository
 
     fun getMoviesList(context: Context){
+        onCallMock()
+    }
+
+    private fun onError(context: Context) {
+        Toast.makeText(context, "A conexão falhou", Toast.LENGTH_SHORT).show()
+    }
+    fun onCallMock(){
+        val mock = readJsonMock<MoviePagination>("mock_movie_pagination.json",MoviePagination::class.java)
+        val results = mock.results
+        view.inflateRecyclerView(results)
+    }
+
+    fun onCallRepository(context: Context){
         launch {
-            movieApi.getMoviesList().enqueue(object : Callback<MoviePagination> {
+            movieRepository.getMoviesList().enqueue(object : Callback<MoviePagination> {
                 override fun onResponse(
                     call: Call<MoviePagination>,
                     response: Response<MoviePagination>
@@ -42,12 +55,7 @@ class MainPresenter(private val view:View): BasePresenter<MainPresenter.View>(vi
         }
     }
 
-    private fun onError(context: Context) {
-        Toast.makeText(context, "A conexão falhou", Toast.LENGTH_SHORT).show()
-    }
-
     interface View: BaseView{
         fun inflateRecyclerView(movieList: List<Movie>)
     }
-
 }

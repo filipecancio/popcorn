@@ -1,14 +1,14 @@
 package dev.cancio.filmin.base
 
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
+import dev.cancio.filmin.util.ResourceReader
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.lang.reflect.Type
 
-abstract class BasePresenter<T: BaseView>(private val view: T): LifecycleObserver{
+abstract class BasePresenter<T : BaseView>(private val view: T) : LifecycleObserver {
 
     private val presenterJob = Job()
     private val uiScope
@@ -18,8 +18,5 @@ abstract class BasePresenter<T: BaseView>(private val view: T): LifecycleObserve
         return uiScope.launch { callback() }
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    fun onStartView(){
-        view.bindViews()
-    }
+    fun <T> readJsonMock(fileName: String, type: Type) = ResourceReader.readJsonMock<T>(fileName,type)
 }

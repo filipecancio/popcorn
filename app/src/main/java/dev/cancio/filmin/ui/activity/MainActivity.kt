@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
         setContentView(binding.root)
 
         MyApplication().appComponent.inject(this)
+        bindViews()
     }
 
     override fun bindViews() {
