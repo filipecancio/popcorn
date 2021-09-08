@@ -1,36 +1,33 @@
 package dev.cancio.filmin.presenter
 
 import android.content.Context
-import android.widget.Toast
 import dev.cancio.filmin.base.BasePresenter
 import dev.cancio.filmin.base.BaseView
 import dev.cancio.filmin.data.model.Movie
 import dev.cancio.filmin.data.model.MoviePagination
 import dev.cancio.filmin.data.repository.MovieRepository
+import dev.cancio.filmin.data.service.MovieService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class MainPresenter(private val view:View): BasePresenter<MainPresenter.View>(view) {
+class HomePresenter @Inject constructor(private val view:View): BasePresenter<HomePresenter.View>(view) {
 
     @Inject
-    lateinit var movieRepository: MovieRepository
+    lateinit var movieRepository: MovieService
 
     fun getMoviesList(context: Context){
         onCallMock()
     }
 
-    private fun onError(context: Context) {
-        Toast.makeText(context, "A conexão falhou", Toast.LENGTH_SHORT).show()
-    }
     fun onCallMock(){
         val mock = readJsonMock<MoviePagination>("mock_movie_pagination.json",MoviePagination::class.java)
         val results = mock.results
         view.inflateRecyclerView(results)
     }
 
-    fun onCallRepository(context: Context){
+    fun onCallRepository(){
         launch {
             movieRepository.getMoviesList().enqueue(object : Callback<MoviePagination> {
                 override fun onResponse(
@@ -43,12 +40,12 @@ class MainPresenter(private val view:View): BasePresenter<MainPresenter.View>(vi
                             view.inflateRecyclerView(results)
                         }
                     }else{
-                        onError(context)
+                        view.onError()
                     }
                 }
 
                 override fun onFailure(call: Call<MoviePagination>, t: Throwable) {
-                    onError(context)
+                    view.onError()
                 }
 
             })
@@ -57,5 +54,6 @@ class MainPresenter(private val view:View): BasePresenter<MainPresenter.View>(vi
 
     interface View: BaseView{
         fun inflateRecyclerView(movieList: List<Movie>)
+        fun onError()
     }
 }

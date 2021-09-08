@@ -1,19 +1,24 @@
 package dev.cancio.filmin.ui.activity
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.cancio.filmin.MyApplication
 import dev.cancio.filmin.data.model.Movie
-import dev.cancio.filmin.databinding.ActivityMainBinding
-import dev.cancio.filmin.presenter.MainPresenter
+import dev.cancio.filmin.databinding.ActivityHomeBinding
+import dev.cancio.filmin.di.HomeModule
+import dev.cancio.filmin.presenter.HomePresenter
 import dev.cancio.filmin.ui.adapter.MovieItemAdapter
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), MainPresenter.View {
+class HomeActivity : AppCompatActivity(), HomePresenter.View {
 
-    private val presenter: MainPresenter by lazy{ MainPresenter(this) }
-    override val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    @Inject
+    lateinit var presenter: HomePresenter
+
+    override val binding: ActivityHomeBinding by lazy { ActivityHomeBinding.inflate(layoutInflater) }
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var movieItemAdapter: MovieItemAdapter
@@ -22,7 +27,7 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        MyApplication().appComponent.inject(this)
+        MyApplication().appComponent.plus(HomeModule(this)).inject(this)
         bindViews()
     }
 
@@ -30,10 +35,10 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
         presenter.getMoviesList(this)
     }
 
-    override fun inflateRecyclerView(movieList: List<Movie>){
+    override fun inflateRecyclerView(movieList: List<Movie>) {
         movieItemAdapter = MovieItemAdapter(this, movieList)
         recyclerView = binding.mainRecyclerview
-        val manager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        val manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         recyclerView.apply {
             layoutManager = manager
@@ -41,8 +46,7 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
         }
     }
 
-
-
-
-
+    override fun onError() {
+        Toast.makeText(this, "A conexão falhou", Toast.LENGTH_SHORT).show()
+    }
 }
