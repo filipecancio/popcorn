@@ -10,5 +10,4 @@ import dev.cancio.filmin.ui.activity.HomeActivity
 interface MainComponent {
     fun plus(module: HomeModule): HomeSubComponent
 
-    fun inject(activity: HomeActivity)
 }
