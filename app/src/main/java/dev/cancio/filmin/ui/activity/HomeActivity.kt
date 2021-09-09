@@ -32,7 +32,7 @@ class HomeActivity : AppCompatActivity(), HomePresenter.View {
     }
 
     override fun bindViews() {
-        presenter.getMoviesList(this)
+        presenter.getMoviesList()
     }
 
     override fun inflateRecyclerView(movieList: List<Movie>) {

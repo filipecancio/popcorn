@@ -1,6 +1,7 @@
 package dev.cancio.filmin.presenter
 
 import android.content.Context
+import android.util.Log
 import dev.cancio.filmin.base.BasePresenter
 import dev.cancio.filmin.base.BaseView
 import dev.cancio.filmin.data.model.Movie
@@ -12,13 +13,14 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class HomePresenter @Inject constructor(private val view:View): BasePresenter<HomePresenter.View>(view) {
+class HomePresenter @Inject constructor(
+    private val view:View,
+    private val movieRepository : MovieRepository
+): BasePresenter<HomePresenter.View>(view) {
 
-    @Inject
-    lateinit var movieRepository: MovieService
 
-    fun getMoviesList(context: Context){
-        onCallMock()
+    fun getMoviesList(){
+        onCallRepository()
     }
 
     fun onCallMock(){
@@ -35,11 +37,13 @@ class HomePresenter @Inject constructor(private val view:View): BasePresenter<Ho
                     response: Response<MoviePagination>
                 ) {
                     if(response.isSuccessful){
+                        Log.i("TMDB", "Chamada deu certo!")
                         val moviePagination = response.body()
                         moviePagination?.apply {
                             view.inflateRecyclerView(results)
                         }
                     }else{
+                        Log.i("TMDB", "Chamada deu errado!")
                         view.onError()
                     }
                 }
