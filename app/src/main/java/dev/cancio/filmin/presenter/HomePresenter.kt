@@ -20,40 +20,26 @@ class HomePresenter @Inject constructor(
 
 
     fun getMoviesList(){
-        onCallRepository()
+        launch {
+            val response = movieRepository.getMoviesList()
+            if(response.isSuccessful){
+                Log.i("TMDB", "Chamada deu certo!")
+                val moviePagination = response.body()
+                moviePagination?.apply {
+                    view.inflateRecyclerView(results)
+                }
+            }else{
+                Log.i("TMDB", "Chamada deu errado!")
+                view.onError()
+                onCallMock()
+            }
+        }
     }
 
-    fun onCallMock(){
+    private fun onCallMock(){
         val mock = readJsonMock<MoviePagination>("mock_movie_pagination.json",MoviePagination::class.java)
         val results = mock.results
         view.inflateRecyclerView(results)
-    }
-
-    fun onCallRepository(){
-        launch {
-            movieRepository.getMoviesList().enqueue(object : Callback<MoviePagination> {
-                override fun onResponse(
-                    call: Call<MoviePagination>,
-                    response: Response<MoviePagination>
-                ) {
-                    if(response.isSuccessful){
-                        Log.i("TMDB", "Chamada deu certo!")
-                        val moviePagination = response.body()
-                        moviePagination?.apply {
-                            view.inflateRecyclerView(results)
-                        }
-                    }else{
-                        Log.i("TMDB", "Chamada deu errado!")
-                        view.onError()
-                    }
-                }
-
-                override fun onFailure(call: Call<MoviePagination>, t: Throwable) {
-                    view.onError()
-                }
-
-            })
-        }
     }
 
     interface View: BaseView{
