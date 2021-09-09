@@ -5,7 +5,10 @@ import dev.cancio.filmin.ui.activity.DetailActivity
 import dev.cancio.filmin.ui.activity.HomeActivity
 
 @Component(
-    modules = [MainModule::class]
+    modules = [
+        MainModule::class,
+        RetrofitModule::class
+    ]
 )
 interface MainComponent {
     fun plus(module: HomeModule): HomeSubComponent
