@@ -3,7 +3,6 @@ package dev.cancio.filmin.di
 import dagger.Module
 import dagger.Provides
 import dev.cancio.filmin.core.RetrofitClient
-import dev.cancio.filmin.data.repository.MovieRepository
 import dev.cancio.filmin.data.service.MovieService
 
 @Module
