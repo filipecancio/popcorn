@@ -8,6 +8,8 @@ import dev.cancio.filmin.data.service.MovieService
 @Module
 class MainModule {
 
+
+
     @Provides
     fun provideMovie(): MovieService {
         return RetrofitClient.createService(MovieService::class.java)
