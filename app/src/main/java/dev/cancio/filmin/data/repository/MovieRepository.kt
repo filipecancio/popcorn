@@ -1,15 +1,16 @@
 package dev.cancio.filmin.data.repository
 
-import dev.cancio.filmin.core.RetrofitClient
 import dev.cancio.filmin.data.model.MoviePagination
 import dev.cancio.filmin.data.service.MovieService
-import retrofit2.Call
+import retrofit2.Response
+import retrofit2.awaitResponse
+import javax.inject.Inject
 
-class MovieRepository {
+class MovieRepository @Inject constructor(
+    private val movieService: MovieService
+) {
 
-    private val movieService = RetrofitClient.createService(MovieService::class.java)
-
-    fun getMoviesList(): Call<MoviePagination> {
-        return movieService.getMoviesList()
+    suspend fun getMoviesList(): Response<MoviePagination> {
+        return movieService.getMoviesList().awaitResponse()
     }
 }
