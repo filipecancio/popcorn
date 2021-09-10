@@ -2,5 +2,6 @@
     <string name="app_name">filmin</string>
     <string name="star_rating">star rating</string>
     <string name="poster_description">poster about the movie</string>
+    <string name="error_message">"The connection has failed"</string>
     <string name="bottom_bar_item_home">Home</string>
 </resources>
