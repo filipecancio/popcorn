@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.cancio.filmin.MyApplication
+import dev.cancio.filmin.R
 import dev.cancio.filmin.data.model.Movie
 import dev.cancio.filmin.databinding.ActivityHomeBinding
 import dev.cancio.filmin.di.HomeModule
@@ -47,6 +48,7 @@ class HomeActivity : AppCompatActivity(), HomePresenter.View {
     }
 
     override fun onError() {
-        Toast.makeText(this, "A conexão falhou", Toast.LENGTH_SHORT).show()
+        val errorMessage = getString(R.string.error_message)
+        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
     }
 }

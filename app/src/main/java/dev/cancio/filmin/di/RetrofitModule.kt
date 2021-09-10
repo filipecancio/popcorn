@@ -11,6 +11,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 @Module
 class RetrofitModule {
 
+    companion object{
+        private const val AUTHORIZATION = "Authorization"
+    }
+
     @Provides
     fun provideRetrofit(): Retrofit {
 
@@ -18,7 +22,7 @@ class RetrofitModule {
             .addInterceptor {
                 val req = it.request()
                     .newBuilder()
-                    .addHeader("Authorization", BuildConfig.API_TOKEN)
+                    .addHeader(AUTHORIZATION, BuildConfig.API_TOKEN)
                     .build()
                 it.proceed(req)
             }

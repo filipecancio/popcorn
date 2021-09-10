@@ -31,9 +31,11 @@ class DetailActivity : AppCompatActivity(), DetailPresenter.View {
     private lateinit var overview: TextView
 
     companion object {
+        private const val MOVIE_EXTRA = "MOVIE"
+
         fun getStartIntent(context: Context, movie: Movie) =
             Intent(context, DetailActivity::class.java)
-                .putExtra("MOVIE", movie)
+                .putExtra(MOVIE_EXTRA, movie)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +52,7 @@ class DetailActivity : AppCompatActivity(), DetailPresenter.View {
             overview = textViewDetailOverview
         }
 
-        val movie = intent.extras?.getSerializable("MOVIE") as Movie
+        val movie = intent.extras?.getSerializable(MOVIE_EXTRA) as Movie
 
         Glide.with(this).load(movie.backdrop).into(backdrop)
         title.text = movie.title
