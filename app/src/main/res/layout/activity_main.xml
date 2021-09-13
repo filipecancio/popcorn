@@ -9,9 +9,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_recyclerview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:paddingHorizontal="8dp"
+        android:layout_width="@dimen/bs_none"
+        android:layout_height="@dimen/bs_none"
+        android:paddingHorizontal="@dimen/bs_small"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green_03"
-        app:itemIconTint="@color/grey"
+        app:itemIconTint="@color/grey_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -3,8 +3,11 @@
     <color name="green_01"> #FF06948E</color>
     <color name="green_02"> #FF034C49</color>
     <color name="green_03"> #FF03403D</color>
+    <color name="green_04"> #FF75FF91</color>
+    <color name="green_05"> #FF4BA35D</color>
     <color name="yellow"> #FFFCD116</color>
-    <color name="grey">  #FFEFEFEF</color>
+    <color name="grey_1">  #FFEFEFEF</color>
+    <color name="grey_2">  #FF8F908F</color>
     <color name="black"> #FF000000</color>
     <color name="white">  #FFFFFFFF</color>
 
