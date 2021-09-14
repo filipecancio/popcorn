@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/green_03"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey_1"
     tools:context=".ui.activity.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_recyclerview"
-        android:layout_width="@dimen/bs_none"
-        android:layout_height="@dimen/bs_none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
         android:paddingHorizontal="@dimen/bs_small"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/movie_item"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:listitem="@layout/movie_item" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green_03"
-        app:itemIconTint="@color/grey_1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_bar_menu" />
+        android:layout_gravity="bottom"
+        android:background="@color/grey_1"
+        app:itemIconTint="@color/grey_2">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:labelVisibilityMode="unlabeled"
+            app:menu="@menu/bottom_bar_menu" />
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/bottom_bar_item_home"
+        android:tint="@color/grey_1"
+        app:layout_anchor="@id/bottomNavigationView"
+        app:srcCompat="@drawable/ic_fire" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

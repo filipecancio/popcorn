@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">filmin</string>
+    <string name="app_name" translatable="false">popcorn</string>
     <string name="star_rating">star rating</string>
     <string name="poster_description">poster about the movie</string>
-    <string name="bottom_bar_item_home">Home</string>
+    <string name="bottom_bar_item_likes">Likes</string>
+    <string name="bottom_bar_item_search">Search</string>
+    <string name="bottom_bar_item_globe">Globe</string>
+    <string name="bottom_bar_item_home">Featured</string>
+    <string name="bottom_bar_item_profile">Profile</string>
 </resources>
