@@ -20,7 +20,9 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.21145833333333333" />
         <entry key="app/src/main/res/drawable/ic_round_home_24.xml" value="0.16944444444444445" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.321875" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3899280575539568" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16354166666666667" />
+        <entry key="app/src/main/res/layout/activity_none.xml" value="0.16354166666666667" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/movie_item.xml" value="0.33" />
         <entry key="app/src/main/res/menu/bottom_bar_menu.xml" value="0.19166666666666668" />
       </map>

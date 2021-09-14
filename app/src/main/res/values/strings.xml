@@ -7,4 +7,7 @@
     <string name="bottom_bar_item_globe">Globe</string>
     <string name="bottom_bar_item_home">Featured</string>
     <string name="bottom_bar_item_profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="none_page">This page doesn\'t exist (yet)</string>
 </resources>

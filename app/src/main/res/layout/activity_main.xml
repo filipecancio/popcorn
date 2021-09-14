@@ -7,35 +7,36 @@
     android:background="@color/grey_1"
     tools:context=".ui.activity.MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/main_recyclerview"
+    <androidx.fragment.app.FragmentContainerView
+        android:name="dev.cancio.popcorn.ui.fragment.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="top"
-        android:paddingHorizontal="@dimen/bs_small"
-        tools:listitem="@layout/movie_item" />
+        android:layout_gravity="top" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/grey_1"
-        app:itemIconTint="@color/grey_2">
-
+        android:backgroundTint="@color/grey_1"
+        app:itemIconTint="@color/grey_2"
+        app:fabCradleRoundedCornerRadius="@dimen/bs_medium"
+        app:fabCradleMargin="@dimen/bs_small">
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:menu="@menu/bottom_bar_menu"
+            android:layout_marginEnd="@dimen/bs_bottom_bar"
+            android:outlineSpotShadowColor="@color/transparent"
             app:labelVisibilityMode="unlabeled"
-            app:menu="@menu/bottom_bar_menu" />
+            android:background="@color/transparent" />
     </com.google.android.material.bottomappbar.BottomAppBar>
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_fire"
         android:contentDescription="@string/bottom_bar_item_home"
-        android:tint="@color/grey_1"
-        app:layout_anchor="@id/bottomNavigationView"
-        app:srcCompat="@drawable/ic_fire" />
+        app:tint="@color/grey_1"
+        app:layout_anchor="@id/bottomNavigationView" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
