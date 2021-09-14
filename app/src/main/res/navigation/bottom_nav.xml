@@ -36,11 +36,7 @@
         android:id="@+id/noneFragment"
         android:name="dev.cancio.popcorn.ui.fragment.NoneFragment"
         android:label="fragment_none"
-        tools:layout="@layout/fragment_none" >
-        <action
-            android:id="@+id/action_noneFragment_to_mainActivity"
-            app:destination="@id/mainActivity" />
-    </fragment>
+        tools:layout="@layout/fragment_none" />
     <activity
         android:id="@+id/mainActivity"
         android:name="dev.cancio.popcorn.ui.activity.MainActivity"

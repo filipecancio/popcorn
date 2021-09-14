@@ -7,4 +7,6 @@
     <string name="bottom_bar_item_globe">Globo</string>
     <string name="bottom_bar_item_home">Recentes</string>
     <string name="bottom_bar_item_profile">Perfil</string>
+    <string name="hello_blank_fragment">Oie, fragmento vazio</string>
+    <string name="none_page">Esta página não existe (ainda)</string>
 </resources>
