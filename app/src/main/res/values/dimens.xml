@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bs_none">0dp</dimen>
+    <dimen name="bs_small">8dp</dimen>
+    <dimen name="bs_medium">16dp</dimen>
+    <dimen name="bs_bottom_bar">20dp</dimen>
+    <dimen name="bs_big">24dp</dimen>
+    <dimen name="bs_large">28dp</dimen>
+</resources>

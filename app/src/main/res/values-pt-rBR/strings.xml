@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="star_rating">avaliação</string>
+    <string name="poster_description">poster sobre o filme</string>
+    <string name="fragment_title_like">Curtidas</string>
+    <string name="fragment_title_search">Busca</string>
+    <string name="fragment_title_globe">Globo</string>
+    <string name="fragment_title_home">Recentes</string>
+    <string name="fragment_title_profile">Perfil</string>
+    <string name="hello_blank_fragment">Oie, fragmento vazio</string>
+    <string name="none_page">Esta página não existe (ainda)</string>
+    <string name="fragment_detail">Detalhes</string>
+    <string name="error_message">A conexão falhou</string>
+</resources>
