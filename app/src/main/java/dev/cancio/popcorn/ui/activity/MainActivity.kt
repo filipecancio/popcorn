@@ -29,9 +29,6 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var movieApi :MovieRepository
-
     private lateinit var recyclerView: RecyclerView
     private lateinit var movieItemAdapter: MovieItemAdapter
     lateinit var navController : NavController
@@ -41,11 +38,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //startHomeFragment()
         setNavigationController()
 
         MyApplication().appComponent.inject(this)
-        //getMoviesList(binding,this)
     }
 
     private fun setNavigationController(){
@@ -84,20 +79,6 @@ class MainActivity : AppCompatActivity() {
 
         })
     }*/
-
-    private fun startHomeFragment() {
-        val homeFragment = HomeFragment()
-        supportFragmentManager.beginTransaction()
-            .add(R.id.nav_host_fragment, homeFragment)
-            .commit()
-    }
-
-    private fun replaceFragment(fragmentId: Int, fragment: Fragment): Boolean {
-        supportFragmentManager.beginTransaction()
-            .replace(fragmentId, fragment)
-            .commit()
-        return true
-    }
 
     private fun onError() {
         Toast.makeText(this, "A conexão falhou", Toast.LENGTH_SHORT).show()
