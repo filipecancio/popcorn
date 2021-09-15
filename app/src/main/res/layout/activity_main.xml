@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,39 +7,27 @@
     android:background="@color/grey_1"
     tools:context=".ui.activity.MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
+    <fragment
         android:id="@+id/nav_host_fragment"
-        android:name="dev.cancio.popcorn.ui.fragment.HomeFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:name="dev.cancio.popcorn.ui.fragment.HomeFragment"
-        android:layout_gravity="top" />
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/bottom_nav"
+        android:layout_width="@dimen/bs_none"
+        android:layout_height="@dimen/bs_none"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        android:layout_width="match_parent"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_bar"
+        android:layout_width="@dimen/bs_none"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:backgroundTint="@color/grey_1"
-        app:itemIconTint="@color/grey_2"
-        app:fabCradleRoundedCornerRadius="@dimen/bs_medium"
-        app:fabCradleMargin="@dimen/bs_small">
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:menu="@menu/bottom_bar_menu"
-            android:layout_marginEnd="@dimen/bs_bottom_bar"
-            android:outlineSpotShadowColor="@color/transparent"
-            app:labelVisibilityMode="unlabeled"
-            android:background="@color/transparent" />
-    </com.google.android.material.bottomappbar.BottomAppBar>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_fire"
-        android:contentDescription="@string/bottom_bar_item_home"
-        app:tint="@color/grey_1"
-        app:layout_anchor="@id/bottomNavigationView" />
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        app:menu="@menu/bottom_bar_menu"
+        app:labelVisibilityMode="unlabeled"
+        android:background="@color/transparent"
+        android:outlineSpotShadowColor="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

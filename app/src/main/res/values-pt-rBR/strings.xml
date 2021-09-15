@@ -2,11 +2,12 @@
 <resources>
     <string name="star_rating">avaliação</string>
     <string name="poster_description">poster sobre o filme</string>
-    <string name="bottom_bar_item_likes">Curtidas</string>
-    <string name="bottom_bar_item_search">Busca</string>
-    <string name="bottom_bar_item_globe">Globo</string>
-    <string name="bottom_bar_item_home">Recentes</string>
-    <string name="bottom_bar_item_profile">Perfil</string>
+    <string name="fragment_title_like">Curtidas</string>
+    <string name="fragment_title_search">Busca</string>
+    <string name="fragment_title_globe">Globo</string>
+    <string name="fragment_title_home">Recentes</string>
+    <string name="fragment_title_profile">Perfil</string>
     <string name="hello_blank_fragment">Oie, fragmento vazio</string>
     <string name="none_page">Esta página não existe (ainda)</string>
+    <string name="fragment_detail">Detalhes</string>
 </resources>

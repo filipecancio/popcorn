@@ -42,4 +42,30 @@
         android:name="dev.cancio.popcorn.ui.activity.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="dev.cancio.popcorn.ui.fragment.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/globeFragment"
+        android:name="dev.cancio.popcorn.ui.fragment.GlobeFragment"
+        android:label="fragment_globe"
+        tools:layout="@layout/fragment_globe" >
+        <action
+            android:id="@+id/action_globeFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="dev.cancio.popcorn.ui.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
 </navigation>
