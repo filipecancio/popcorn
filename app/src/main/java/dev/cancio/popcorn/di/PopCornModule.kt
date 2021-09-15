@@ -6,7 +6,7 @@ import dev.cancio.popcorn.data.service.MovieService
 import retrofit2.Retrofit
 
 @Module
-class MainModule {
+class PopCornModule {
 
     @Provides
     fun provideMovie(retrofit: Retrofit): MovieService {

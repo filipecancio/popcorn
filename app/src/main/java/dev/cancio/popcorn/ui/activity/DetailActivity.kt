@@ -7,14 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import dev.cancio.popcorn.MyApplication
 import dev.cancio.popcorn.data.model.Movie
 import dev.cancio.popcorn.databinding.ActivityDetailBinding
-import dev.cancio.popcorn.di.DetailModule
 import dev.cancio.popcorn.presenter.DetailPresenter
 import javax.inject.Inject
-import dev.cancio.popcorn.data.model.Movie
-import dev.cancio.popcorn.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity(), DetailPresenter.View {
     override val binding: ActivityDetailBinding by lazy {
@@ -41,7 +37,7 @@ class DetailActivity : AppCompatActivity(), DetailPresenter.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        MyApplication().appComponent.plus(DetailModule(this)).inject(this)
+        //MyApplication().appComponent.plus(DetailModule(this)).inject(this)
         bindViews()
     }
 

@@ -4,12 +4,11 @@ import dagger.Component
 
 @Component(
     modules = [
-        MainModule::class,
+        PopCornModule::class,
         RetrofitModule::class
     ]
 )
 interface MainComponent {
     fun plus(module: HomeModule): HomeSubComponent
-    fun plus(module: DetailModule): DetailSubComponent
 
 }

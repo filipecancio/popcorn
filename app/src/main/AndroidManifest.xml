@@ -15,9 +15,6 @@
             android:name="dev.cancio.popcorn.ui.activity.HomeActivity"
             android:exported="true" />
         <activity
-            android:name="dev.cancio.popcorn.ui.activity.DetailActivity"
-            android:exported="true" />
-        <activity
             android:name="dev.cancio.popcorn.ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>

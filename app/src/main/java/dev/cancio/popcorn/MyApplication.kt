@@ -1,9 +1,9 @@
 package dev.cancio.popcorn
 
 import android.app.Application
-import dev.cancio.popcorn.di.DaggerMovieComponent
+import dev.cancio.popcorn.di.DaggerMainComponent
 
 class MyApplication: Application() {
 
-    val appComponent = DaggerMovieComponent.builder().build()
+    val appComponent = DaggerMainComponent.builder().build()
 }

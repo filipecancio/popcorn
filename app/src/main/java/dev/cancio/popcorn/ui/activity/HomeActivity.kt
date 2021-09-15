@@ -5,11 +5,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.cancio.popcorn.MyApplication
 import dev.cancio.popcorn.R
 import dev.cancio.popcorn.data.model.Movie
 import dev.cancio.popcorn.databinding.ActivityHomeBinding
-import dev.cancio.popcorn.di.HomeModule
 import dev.cancio.popcorn.presenter.HomePresenter
 import dev.cancio.popcorn.ui.adapter.MovieItemAdapter
 import javax.inject.Inject
@@ -28,13 +26,15 @@ class HomeActivity : AppCompatActivity(), HomePresenter.View {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        MyApplication().appComponent.plus(HomeModule(this)).inject(this)
+        //MyApplication().appComponent.plus(HomeModule(this)).inject(this)
         bindViews()
     }
 
     override fun bindViews() {
         presenter.getMoviesList()
     }
+
+
 
     override fun inflateRecyclerView(movieList: List<Movie>) {
         movieItemAdapter = MovieItemAdapter(this, movieList)
