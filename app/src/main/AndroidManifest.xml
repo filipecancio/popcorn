@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Filmin">
         <activity
-            android:name="dev.cancio.popcorn.ui.activity.NoneActivity"
+            android:name="dev.cancio.popcorn.ui.activity.HomeActivity"
             android:exported="true" />
         <activity
             android:name="dev.cancio.popcorn.ui.activity.DetailActivity"

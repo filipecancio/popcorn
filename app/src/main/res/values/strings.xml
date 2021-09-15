@@ -11,4 +11,5 @@
     <string name="none_page">This page doesn\'t exist (yet)</string>
     <string name="fragment_detail">Details</string>
     <string name="app_title" translatable="false">PopCorn</string>
+    <string name="error_message">"The connection has failed"</string>
 </resources>
