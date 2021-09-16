@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.cancio.popcorn.MyApplication
 import dev.cancio.popcorn.R
@@ -48,7 +48,7 @@ class HomeFragment : Fragment(), HomePresenter.View  {
         val fragmentManager = activity?.supportFragmentManager
         movieItemAdapter = MovieItemAdapter(this.requireContext(), movieList,fragmentManager)
         recyclerView = binding.mainRecyclerview
-        val manager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
+        val manager = GridLayoutManager(this.context, 3)
 
         recyclerView.apply {
             layoutManager = manager

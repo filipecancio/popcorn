@@ -12,7 +12,6 @@
         android:id="@+id/imageView_detail_backdrop"
         android:layout_width="0dp"
         android:layout_height="400dp"
-        android:background="@drawable/rounded_shape"
         android:contentDescription="@string/poster_description"
         android:src="@drawable/backdrop"
         android:scaleType="centerCrop"

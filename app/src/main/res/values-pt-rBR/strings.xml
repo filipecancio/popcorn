@@ -11,4 +11,5 @@
     <string name="none_page">Esta página não existe (ainda)</string>
     <string name="fragment_detail">Detalhes</string>
     <string name="error_message">A conexão falhou</string>
+    <string name="new_releases">Lançamentos</string>
 </resources>

@@ -12,4 +12,7 @@
     <string name="fragment_detail">Details</string>
     <string name="app_title" translatable="false">PopCorn</string>
     <string name="error_message">"The connection has failed"</string>
+    <string name="new_releases">New Releases</string>
+    <string name="item_name" translatable="false">Movie Title</string>
+    <string name="rating_exemple" translatable="false">8.9</string>
 </resources>

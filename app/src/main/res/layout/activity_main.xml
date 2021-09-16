@@ -6,32 +6,35 @@
     android:layout_height="match_parent"
     android:background="@color/grey_1"
     tools:context=".ui.activity.MainActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/top_nav_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="@dimen/bs_none"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_movie"
-                app:tint="@color/green_01"
-                />
+                android:contentDescription="@string/app_name"
+                app:tint="@color/green_01" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/bs_small"
                 android:text="@string/app_title"
-                android:textColor="@color/green_01"
-                android:layout_marginStart="@dimen/bs_small"/>
+                android:textColor="@color/green_01" />
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
@@ -39,25 +42,25 @@
     <fragment
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/bottom_nav"
         android:layout_width="@dimen/bs_none"
         android:layout_height="@dimen/bs_none"
+        app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/top_nav_bar"
+        app:navGraph="@navigation/bottom_nav" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_bar"
         android:layout_width="@dimen/bs_none"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom_bar_menu"
-        app:labelVisibilityMode="unlabeled"
-        android:elevation="@dimen/bs_none"
         android:background="@color/transparent"
+        android:elevation="@dimen/bs_none"
         android:outlineSpotShadowColor="@color/transparent"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_bar_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>
