@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.cancio.popcorn.MyApplication
 import dev.cancio.popcorn.R
-import dev.cancio.popcorn.data.model.Movie
+import dev.cancio.popcorn.data.model.dataclass.Movie
 import dev.cancio.popcorn.databinding.FragmentHomeBinding
 import dev.cancio.popcorn.di.HomeModule
 import dev.cancio.popcorn.presenter.HomePresenter
@@ -35,7 +35,7 @@ class HomeFragment : Fragment(), HomePresenter.View  {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         bindViews()
         return binding.root
     }

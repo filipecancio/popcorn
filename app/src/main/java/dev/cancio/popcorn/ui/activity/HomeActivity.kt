@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.cancio.popcorn.R
-import dev.cancio.popcorn.data.model.Movie
+import dev.cancio.popcorn.data.model.dataclass.Movie
 import dev.cancio.popcorn.databinding.ActivityHomeBinding
 import dev.cancio.popcorn.presenter.HomePresenter
 import dev.cancio.popcorn.ui.adapter.MovieItemAdapter

@@ -1,6 +1,6 @@
 package dev.cancio.filmin.data.repository
 
-import dev.cancio.popcorn.data.model.MoviePagination
+import dev.cancio.popcorn.data.model.dataclass.MoviePagination
 import dev.cancio.popcorn.data.service.MovieService
 import retrofit2.Response
 import retrofit2.awaitResponse

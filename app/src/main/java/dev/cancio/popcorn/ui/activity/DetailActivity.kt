@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import dev.cancio.popcorn.data.model.Movie
+import dev.cancio.popcorn.data.model.dataclass.Movie
 import dev.cancio.popcorn.databinding.ActivityDetailBinding
 import dev.cancio.popcorn.presenter.DetailPresenter
 import javax.inject.Inject

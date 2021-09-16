@@ -4,8 +4,8 @@ package dev.cancio.popcorn.presenter
 import dev.cancio.filmin.data.repository.MovieRepository
 import dev.cancio.popcorn.base.BasePresenter
 import dev.cancio.popcorn.base.BaseView
-import dev.cancio.popcorn.data.model.Movie
-import dev.cancio.popcorn.data.model.MoviePagination
+import dev.cancio.popcorn.data.model.dataclass.Movie
+import dev.cancio.popcorn.data.model.dataclass.MoviePagination
 import javax.inject.Inject
 
 class HomePresenter @Inject constructor(
@@ -30,7 +30,7 @@ class HomePresenter @Inject constructor(
 
     private fun onCallMock(){
         val fileName = "mock_movie_pagination.json"
-        val mock = readJsonMock<MoviePagination>(fileName,MoviePagination::class.java)
+        val mock = readJsonMock<MoviePagination>(fileName, MoviePagination::class.java)
         val results = mock.results
         view.inflateRecyclerView(results)
     }

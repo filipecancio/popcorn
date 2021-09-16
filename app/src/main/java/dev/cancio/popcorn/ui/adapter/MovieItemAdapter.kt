@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import dev.cancio.popcorn.data.model.Movie
+import dev.cancio.popcorn.data.model.dataclass.Movie
 import dev.cancio.popcorn.databinding.MovieItemBinding
 import dev.cancio.popcorn.ui.vh.MovieItemViewHolder
 

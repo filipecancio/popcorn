@@ -3,7 +3,7 @@ package dev.cancio.popcorn.ui.vh
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import dev.cancio.popcorn.data.model.Movie
+import dev.cancio.popcorn.data.model.dataclass.Movie
 import dev.cancio.popcorn.databinding.MovieItemBinding
 import dev.cancio.popcorn.ui.activity.DetailActivity
 

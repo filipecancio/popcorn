@@ -1,4 +1,4 @@
-package dev.cancio.popcorn.data.model
+package dev.cancio.popcorn.data.model.dataclass
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
@@ -30,10 +30,10 @@ data class Movie(
 ):Serializable {
 
     val poster: String
-        get() = "${BASE_URL}$posterPath"
+        get() = "$BASE_URL$posterPath"
 
     val backdrop: String
-        get() = "${BASE_URL}$backdropPath"
+        get() = "$BASE_URL$backdropPath"
 
     companion object {
         private const val BASE_URL = "https://image.tmdb.org/t/p/original"
