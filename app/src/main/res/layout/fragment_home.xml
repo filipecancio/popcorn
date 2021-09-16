@@ -5,31 +5,58 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/grey_1"
+    android:padding="@dimen/bs_large"
     tools:context=".ui.fragment.HomeFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_discover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/bs_small"
+        android:text="@string/title_discovery"
+        android:textColor="@color/green_01"
+        android:fontFamily="@font/raleway"
+        android:textSize="@dimen/bf_large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView_discover"
+        android:layout_width="@dimen/movie_item_discover_width"
+        android:layout_height="@dimen/movie_item_discover_height"
+        android:contentDescription="@string/poster_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/poster"
+        app:layout_constraintBottom_toTopOf="@id/title_new_releases"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_discover"
+        app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+    <TextView
+        android:id="@+id/title_new_releases"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/bs_small"
         android:text="@string/new_releases"
         android:textColor="@color/green_01"
-
+        android:layout_margin="@dimen/bs_medium"
         android:fontFamily="@font/raleway"
         android:textSize="@dimen/bf_large"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_discover"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_recyclerview"
         android:layout_width="@dimen/bs_none"
         android:layout_height="@dimen/bs_none"
         android:layout_gravity="top"
+        android:overScrollMode="never"
         android:paddingHorizontal="@dimen/bs_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/title_new_releases"
         tools:listitem="@layout/movie_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,4 +15,5 @@
     <string name="new_releases">New Releases</string>
     <string name="item_name" translatable="false">Movie Title</string>
     <string name="rating_exemple" translatable="false">8.9</string>
+    <string name="title_discovery">Discover</string>
 </resources>
