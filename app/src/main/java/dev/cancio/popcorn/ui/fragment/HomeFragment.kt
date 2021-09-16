@@ -45,7 +45,8 @@ class HomeFragment : Fragment(), HomePresenter.View  {
     }
 
     override fun inflateRecyclerView(movieList: List<Movie>) {
-        movieItemAdapter = MovieItemAdapter(this.requireContext(), movieList)
+        val fragmentManager = activity?.supportFragmentManager
+        movieItemAdapter = MovieItemAdapter(this.requireContext(), movieList,fragmentManager)
         recyclerView = binding.mainRecyclerview
         val manager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
 

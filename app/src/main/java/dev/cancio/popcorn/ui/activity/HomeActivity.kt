@@ -37,7 +37,7 @@ class HomeActivity : AppCompatActivity(), HomePresenter.View {
 
 
     override fun inflateRecyclerView(movieList: List<Movie>) {
-        movieItemAdapter = MovieItemAdapter(this, movieList)
+        movieItemAdapter = MovieItemAdapter(this, movieList,supportFragmentManager)
         recyclerView = binding.mainRecyclerview
         val manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 

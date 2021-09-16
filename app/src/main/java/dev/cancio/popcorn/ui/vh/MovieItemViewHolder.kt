@@ -1,14 +1,17 @@
 package dev.cancio.popcorn.ui.vh
 
 import android.view.View
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import dev.cancio.popcorn.R
 import dev.cancio.popcorn.data.model.dataclass.Movie
 import dev.cancio.popcorn.databinding.MovieItemBinding
-import dev.cancio.popcorn.ui.activity.DetailActivity
+import dev.cancio.popcorn.ui.fragment.DetailFragment
 
 class MovieItemViewHolder(
-    private val itemMovieBinding: MovieItemBinding
+    private val itemMovieBinding: MovieItemBinding,
+    private val fragmentManager: FragmentManager?
 ) : View.OnClickListener, RecyclerView.ViewHolder(itemMovieBinding.root) {
 
     private lateinit var movie: Movie
@@ -28,9 +31,11 @@ class MovieItemViewHolder(
 
     override fun onClick(view: View?) {
         view?.let {
-            val context = it.context
-            val intent = DetailActivity.getStartIntent(context, movie)
-            context.startActivity(intent)
+            val newFragment = DetailFragment.newInstance(movie)
+            fragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.nav_host_fragment,newFragment)
+                ?.commit()
         }
     }
 }

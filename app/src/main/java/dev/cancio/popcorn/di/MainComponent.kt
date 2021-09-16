@@ -10,5 +10,6 @@ import dagger.Component
 )
 interface MainComponent {
     fun plus(module: HomeModule): HomeSubComponent
+    fun plus(module: DetailModule): DetailSubComponent
 
 }
