@@ -7,13 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.cancio.popcorn.MyApplication
+import dev.cancio.popcorn.R
 import dev.cancio.popcorn.data.model.dataclass.Movie
+import dev.cancio.popcorn.data.model.dataclass.MovieDetail
+import dev.cancio.popcorn.data.model.dataclass.Person
 import dev.cancio.popcorn.databinding.FragmentDetailBinding
 import dev.cancio.popcorn.di.DetailModule
 import dev.cancio.popcorn.presenter.DetailPresenter
+import dev.cancio.popcorn.ui.adapter.CastItemAdapter
 import javax.inject.Inject
 
 private const val MOVIE_EXTRA = "MOVIE"
@@ -22,6 +29,9 @@ class DetailFragment : Fragment(), DetailPresenter.View {
 
     @Inject
     lateinit var presenter: DetailPresenter
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var castAdapter: CastItemAdapter
 
     override val binding: FragmentDetailBinding by lazy { FragmentDetailBinding.inflate(layoutInflater)}
 
@@ -58,16 +68,42 @@ class DetailFragment : Fragment(), DetailPresenter.View {
     }
 
     override fun bindViews() {
+
+        val movie = arguments?.getSerializable(MOVIE_EXTRA) as Movie
+
+        presenter.apply {
+            getCredit(movie.id)
+            getMovieDetail(movie.id)
+        }
+
+    }
+
+    override fun inflateRecyclerView(cast: List<Person>) {
+        castAdapter = CastItemAdapter(cast)
+        recyclerView = binding.castRecyclerview
+        val manager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+
+        recyclerView.apply {
+            layoutManager = manager
+            adapter = castAdapter
+        }
+    }
+
+    override fun bindDetails(details: MovieDetail) {
         binding.apply {
             backdrop = imageViewDetailBackdrop
             title = textViewDetailTitle
             overview = textViewDetailOverview
         }
 
-        val movie = arguments?.getSerializable(MOVIE_EXTRA) as Movie
+        Glide.with(this).load(details.backdrop).into(backdrop)
+        title.text = details.title
+        overview.text = details.overview
 
-        Glide.with(this).load(movie.backdrop).into(backdrop)
-        title.text = movie.title
-        overview.text = movie.overview
+    }
+
+
+    override fun onError() {
+        Toast.makeText(this.context, getString(R.string.error_message), Toast.LENGTH_SHORT).show()
     }
 }

@@ -1,5 +1,7 @@
 package dev.cancio.filmin.data.repository
 
+import dev.cancio.popcorn.data.model.dataclass.Credit
+import dev.cancio.popcorn.data.model.dataclass.MovieDetail
 import dev.cancio.popcorn.data.model.dataclass.MoviePagination
 import dev.cancio.popcorn.data.service.MovieService
 import retrofit2.Response
@@ -12,5 +14,13 @@ class MovieRepository @Inject constructor(
 
     suspend fun getMoviesList(): Response<MoviePagination> {
         return movieService.getMoviesList().awaitResponse()
+    }
+
+    suspend fun getMovieDetail(movieId: Int): Response<MovieDetail> {
+        return movieService.getMovieDetail(movieId).awaitResponse()
+    }
+
+    suspend fun getMovieCredits(movieId: Int): Response<Credit> {
+        return movieService.getMovieCredits(movieId).awaitResponse()
     }
 }

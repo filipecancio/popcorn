@@ -10,11 +10,11 @@ data class Person(
     val gender: PersonGender,
     val id: Int,
     @SerializedName("known_for_department")
-    val knownForDepartment: Int,
+    val knownForDepartment: String,
     val name: String,
     @SerializedName("original_name")
     val originalName: String,
-    val popularity: Int,
+    val popularity: Double,
     @SerializedName("profile_path")
     private val profilePath: String,
     @SerializedName("cast_id")
