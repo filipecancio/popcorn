@@ -31,7 +31,7 @@ class MovieItemViewHolder(
 
     override fun onClick(view: View?) {
         view?.let {
-            val newFragment = DetailFragment.newInstance(movie)
+            val newFragment = DetailFragment.newInstance(movie.id)
             fragmentManager
                 ?.beginTransaction()
                 ?.replace(R.id.nav_host_fragment,newFragment)

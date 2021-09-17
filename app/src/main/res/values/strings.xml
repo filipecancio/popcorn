@@ -16,4 +16,6 @@
     <string name="item_name" translatable="false">Movie Title</string>
     <string name="rating_exemple" translatable="false">8.9</string>
     <string name="title_discovery">Discover</string>
+    <string name="director_name">Director: %1$s</string>
+    <string name="starring_name">Starring: %1$s</string>
 </resources>

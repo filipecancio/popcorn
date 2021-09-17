@@ -13,4 +13,6 @@
     <string name="error_message">A conexão falhou</string>
     <string name="new_releases">Lançamentos</string>
     <string name="title_discovery">Descubra</string>
+    <string name="director_name">Diretor: %1$s</string>
+    <string name="starring_name">Estrelando: %1$s</string>
 </resources>

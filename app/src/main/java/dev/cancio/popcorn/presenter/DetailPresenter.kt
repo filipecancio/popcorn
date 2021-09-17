@@ -3,8 +3,8 @@ package dev.cancio.popcorn.presenter
 import dev.cancio.filmin.data.repository.MovieRepository
 import dev.cancio.popcorn.base.BasePresenter
 import dev.cancio.popcorn.base.BaseView
+import dev.cancio.popcorn.data.model.dataclass.Credit
 import dev.cancio.popcorn.data.model.dataclass.MovieDetail
-import dev.cancio.popcorn.data.model.dataclass.Person
 import javax.inject.Inject
 
 class DetailPresenter @Inject constructor(
@@ -19,7 +19,7 @@ class DetailPresenter @Inject constructor(
             if(response.isSuccessful){
                 val credit = response.body()
                 credit?.apply {
-                    view.inflateRecyclerView(cast)
+                    view.inflateRecyclerView(this)
                 }
             }else{
                 view.onError()
@@ -30,8 +30,8 @@ class DetailPresenter @Inject constructor(
         launch {
             val response = movieRepository.getMovieDetail(movieId)
             if(response.isSuccessful){
-                val credit = response.body()
-                credit?.apply {
+                val detail = response.body()
+                detail?.apply {
                     view.bindDetails(this)
                 }
             }else{
@@ -42,7 +42,7 @@ class DetailPresenter @Inject constructor(
 
     interface View : BaseView {
         fun bindDetails(details: MovieDetail)
-        fun inflateRecyclerView(cast: List<Person>)
+        fun inflateRecyclerView(credit: Credit)
         fun onError()
     }
 }
