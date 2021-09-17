@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -67,7 +68,7 @@ class DetailFragment : Fragment(), DetailPresenter.View {
     override fun inflateRecyclerView(credit: Credit) {
 
         val manager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
-        binding.apply {
+        with(binding) {
             textviewDetailStarring.text =
                 getString(R.string.starring_name, credit.cast[0].name)
             textviewDetailDirector.text = getString(R.string.director_name, credit.crew[0].name)
@@ -78,15 +79,16 @@ class DetailFragment : Fragment(), DetailPresenter.View {
     }
 
     override fun bindDetails(details: MovieDetail) {
-        binding.let {
-            Glide.with(this).load(details.backdrop).into(it.imageViewDetailPosterBackdrop)
-            Glide.with(this).load(details.poster).into(it.imageViewDetailPoster)
-
-            it.textviewDetailTitle.text = details.title
-            it.textviewDetailOverview.text = details.overview
-            it.textviewDetailRating.text = details.voteAverage.toString()
+        with(binding) {
+            imageViewDetailPosterBackdrop.load(details.backdrop)
+            imageViewDetailPoster.load(details.poster)
+            textviewDetailTitle.text = details.title
+            textviewDetailOverview.text = details.overview
+            textviewDetailRating.text = details.voteAverage.toString()
         }
     }
+
+    private fun ImageView.load(path: String) = Glide.with(this).load(path).into(this)
 
 
     override fun onError() {
