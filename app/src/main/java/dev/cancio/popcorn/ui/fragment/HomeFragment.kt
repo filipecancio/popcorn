@@ -17,12 +17,12 @@ import dev.cancio.popcorn.presenter.HomePresenter
 import dev.cancio.popcorn.ui.adapter.MovieItemAdapter
 import javax.inject.Inject
 
-class HomeFragment : Fragment(), HomePresenter.View  {
+class HomeFragment : Fragment(), HomePresenter.View {
 
     @Inject
     lateinit var presenter: HomePresenter
 
-    override val binding: FragmentHomeBinding by lazy { FragmentHomeBinding .inflate(layoutInflater) }
+    override val binding: FragmentHomeBinding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var movieItemAdapter: MovieItemAdapter
@@ -46,8 +46,8 @@ class HomeFragment : Fragment(), HomePresenter.View  {
 
     override fun inflateRecyclerView(movieList: List<Movie>) {
         val fragmentManager = activity?.supportFragmentManager
-        movieItemAdapter = MovieItemAdapter(this.requireContext(), movieList,fragmentManager)
-        recyclerView = binding.mainRecyclerview
+        movieItemAdapter = MovieItemAdapter(this.requireContext(), movieList, fragmentManager)
+        recyclerView = binding.recyclerviewReleasesItems
         val manager = GridLayoutManager(this.context, 3)
 
         recyclerView.apply {
