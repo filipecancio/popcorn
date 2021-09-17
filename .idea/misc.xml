@@ -11,8 +11,8 @@
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_none.xml" value="0.35104166666666664" />
-        <entry key="app/src/main/res/layout/cast_item.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.35104166666666664" />
+        <entry key="app/src/main/res/layout/cast_item.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.21360544217687075" />
         <entry key="app/src/main/res/layout/fragment_globe.xml" value="0.35104166666666664" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.35104166666666664" />
         <entry key="app/src/main/res/layout/fragment_like.xml" value="0.35104166666666664" />
