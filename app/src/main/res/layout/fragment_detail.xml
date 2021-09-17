@@ -7,11 +7,10 @@
     android:background="@color/grey_1"
     tools:context=".ui.fragment.DetailFragment">
 
-
     <ImageView
         android:id="@+id/imageView_detail_backdrop"
         android:layout_width="0dp"
-        android:layout_height="400dp"
+        android:layout_height="200dp"
         android:contentDescription="@string/poster_description"
         android:src="@drawable/backdrop"
         android:scaleType="centerCrop"
@@ -20,26 +19,109 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView_detail_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:textColor="@color/green_01"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_detail_backdrop"
-        tools:text="cruella" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:background="@color/black_80"
+        app:layout_constraintTop_toTopOf="@id/imageView_detail_backdrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
-    <TextView
-        android:id="@+id/textView_detail_overview"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bs_medium"
+        android:background="@drawable/horizontal_line_detail"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_detail_backdrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/movie_header"
+        android:layout_width="@dimen/bs_none"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_detail_backdrop"
+        android:paddingHorizontal="@dimen/bs_large">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageView_detail_poster"
+            android:layout_width="@dimen/movie_item_image_width"
+            android:layout_height="@dimen/movie_item_image_height"
+            android:contentDescription="@string/poster_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/poster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+        <TextView
+            android:id="@+id/textView_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green_01"
+            android:layout_marginStart="@dimen/bs_small"
+            android:textSize="@dimen/bs_large"
+            app:layout_constraintStart_toEndOf="@+id/imageView_detail_poster"
+            app:layout_constraintTop_toBottomOf="@+id/movie_header"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="cruella" />
+        <TextView
+            android:id="@+id/textView_detail_director"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/bs_small"
+            app:layout_constraintTop_toBottomOf="@id/textView_detail_title"
+            app:layout_constraintLeft_toLeftOf="@id/textView_detail_title"
+            android:textSize="@dimen/bs_medium"
+            android:text="Diretor: sei n"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/bs_small"
+            app:layout_constraintTop_toBottomOf="@id/textView_detail_director"
+            app:layout_constraintLeft_toLeftOf="@id/textView_detail_title"
+            android:textSize="@dimen/bs_medium"
+            android:text="Estrelando: sei n / sei n"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:textColor="@color/green_01"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView_detail_title"
-        app:layout_constraintTop_toBottomOf="@+id/textView_detail_title"
-        tools:text="Inteligente, criativa e determinada, Estella quer fazer um nome para si através de seus designs e acaba chamando a atenção da Baronesa Von Hellman. Entretanto, o relacionamento delas desencadeia um curso de eventos e revelações que fazem com que Estella abrace seu lado rebelde e se torne a Cruella, uma pessoa má, elegante e voltada para a vingança." />
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/bs_large"
+        android:paddingTop="@dimen/bs_medium"
+        app:layout_constraintTop_toBottomOf="@id/movie_header">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/bs_large"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/green_01"
+            android:text="Sinopse"/>
+
+        <TextView
+            android:id="@+id/textView_detail_overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/bs_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/movie_header"
+            app:layout_constraintTop_toBottomOf="@+id/movie_header"
+            tools:text="Inteligente, criativa e determinada, Estella quer fazer um nome para si através de seus designs e acaba chamando a atenção da Baronesa Von Hellman. Entretanto, o relacionamento delas desencadeia um curso de eventos e revelações que fazem com que Estella abrace seu lado rebelde e se torne a Cruella, uma pessoa má, elegante e voltada para a vingança." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/bs_large"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/green_01"
+            android:text="Elenco"/>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
