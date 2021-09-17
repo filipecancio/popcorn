@@ -22,5 +22,5 @@
     <dimen name="movie_item_image_height">138dp</dimen>
 
     <dimen name="movie_item_discover_width">200dp</dimen>
-    <dimen name="movie_item_discover_height">262dp</dimen>
+    <dimen name="movie_item_discover_height">200dp</dimen>
 </resources>

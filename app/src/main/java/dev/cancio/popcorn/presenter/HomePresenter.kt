@@ -5,8 +5,8 @@ import dev.cancio.filmin.data.repository.MovieRepository
 import dev.cancio.popcorn.base.BasePresenter
 import dev.cancio.popcorn.base.BaseView
 import dev.cancio.popcorn.data.model.dataclass.Movie
-import dev.cancio.popcorn.data.model.dataclass.MoviePagination
 import javax.inject.Inject
+import kotlin.random.Random
 
 class HomePresenter @Inject constructor(
     private val view:View,
@@ -20,23 +20,22 @@ class HomePresenter @Inject constructor(
                 val moviePagination = response.body()
                 moviePagination?.apply {
                     view.inflateRecyclerView(results)
+                    getRandomRelease(results)
                 }
             }else{
                 view.onError()
-                onCallMock()
             }
         }
     }
 
-    private fun onCallMock(){
-        val fileName = "mock_movie_pagination.json"
-        val mock = readJsonMock<MoviePagination>(fileName, MoviePagination::class.java)
-        val results = mock.results
-        view.inflateRecyclerView(results)
+    private fun getRandomRelease(results: List<Movie>){
+        val randomIndex = Random.nextInt(results.size);
+        view.inflateDiscoverPoster(results[randomIndex])
     }
 
     interface View: BaseView{
         fun inflateRecyclerView(movieList: List<Movie>)
+        fun inflateDiscoverPoster(movie: Movie)
         fun onError()
     }
 }
