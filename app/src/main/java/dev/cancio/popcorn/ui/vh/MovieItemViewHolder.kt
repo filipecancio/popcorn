@@ -1,6 +1,7 @@
 package dev.cancio.popcorn.ui.vh
 
 import android.view.View
+import android.widget.ImageView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -22,12 +23,14 @@ class MovieItemViewHolder(
 
     fun bind(movie: Movie) {
         this.movie = movie
-        itemMovieBinding.apply {
-            Glide.with(this.root).load(movie.poster).into(imageViewPoster)
+        with(itemMovieBinding) {
+            imageViewPoster.load(movie.poster)
             textViewTitle.text = movie.title
             textViewRating.text = movie.voteAverage.toString()
         }
     }
+
+    private fun ImageView.load(path: String) = Glide.with(this).load(path).into(this)
 
     override fun onClick(view: View?) {
         view?.let {

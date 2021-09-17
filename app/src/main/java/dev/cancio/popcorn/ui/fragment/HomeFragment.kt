@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.bumptech.glide.Glide
 import dev.cancio.popcorn.MyApplication
 import dev.cancio.popcorn.R
 import dev.cancio.popcorn.data.model.dataclass.Movie
@@ -52,8 +50,6 @@ class HomeFragment : Fragment(), HomePresenter.View {
             adapter = MovieItemAdapter(context, movieList, fragmentManager)
         }
     }
-
-    private fun ImageView.load(path: String) = Glide.with(this).load(path).into(this)
 
     override fun onError() {
         Toast.makeText(this.context, getString(R.string.error_message), Toast.LENGTH_SHORT).show()
