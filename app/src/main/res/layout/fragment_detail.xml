@@ -9,11 +9,12 @@
     tools:context=".ui.fragment.DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_detail_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/grey_1">
         <ImageView
-            android:id="@+id/imageView_detail_backdrop"
+            android:id="@+id/imageView_detail_poster_backdrop"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:contentDescription="@string/poster_description"
@@ -25,19 +26,23 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
+            android:id="@+id/linearlayout_detail_poster_colorlayer"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:background="@color/black_80"
-            app:layout_constraintTop_toTopOf="@id/imageView_detail_backdrop"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="@id/imageView_detail_poster_backdrop"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />
 
         <LinearLayout
+            android:id="@+id/linearlayout_detail_poster_line"
             android:layout_width="match_parent"
             android:layout_height="@dimen/bs_medium"
             android:background="@drawable/horizontal_line_detail"
-            app:layout_constraintBottom_toBottomOf="@id/imageView_detail_backdrop"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/imageView_detail_poster_backdrop"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
 
@@ -47,7 +52,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView_detail_backdrop"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_detail_poster_backdrop"
             android:paddingHorizontal="@dimen/bs_large">
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -63,48 +68,48 @@
                 app:shapeAppearanceOverlay="@style/RoundedSquare" />
 
             <TextView
-                android:id="@+id/textView_detail_title"
+                android:id="@+id/textview_detail_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/green_01"
                 android:layout_marginStart="@dimen/bs_small"
-                android:textSize="@dimen/bs_large"
+                android:textSize="@dimen/bf_large"
                 app:layout_constraintStart_toEndOf="@+id/imageView_detail_poster"
                 app:layout_constraintTop_toBottomOf="@+id/movie_header"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/app_title" />
             <TextView
-                android:id="@+id/textView_detail_director"
+                android:id="@+id/textview_detail_director"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/bs_small"
-                app:layout_constraintTop_toBottomOf="@id/textView_detail_title"
-                app:layout_constraintLeft_toLeftOf="@id/textView_detail_title"
-                android:textSize="@dimen/bs_medium"
+                app:layout_constraintTop_toBottomOf="@id/textview_detail_title"
+                app:layout_constraintLeft_toLeftOf="@id/textview_detail_title"
+                android:textSize="@dimen/bf_medium"
                 android:text="@string/director_name"/>
             <TextView
-                android:id="@+id/textView_detail_starring"
+                android:id="@+id/textview_detail_starring"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/bs_small"
-                app:layout_constraintTop_toBottomOf="@id/textView_detail_director"
-                app:layout_constraintLeft_toLeftOf="@id/textView_detail_title"
-                android:textSize="@dimen/bs_medium"
+                app:layout_constraintTop_toBottomOf="@id/textview_detail_director"
+                app:layout_constraintLeft_toLeftOf="@id/textview_detail_title"
+                android:textSize="@dimen/bf_medium"
                 android:text="@string/starring_name"/>
 
             <ImageView
-                android:id="@+id/imageView_detail_star"
+                android:id="@+id/imageview_detail_star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_round_star_24"
                 android:layout_marginTop="@dimen/bs_smaller"
                 android:contentDescription="@string/star_rating"
-                app:layout_constraintStart_toStartOf="@id/textView_detail_starring"
-                app:layout_constraintEnd_toStartOf="@id/textView_detail_rating"
-                app:layout_constraintTop_toBottomOf="@+id/textView_detail_starring" />
+                app:layout_constraintStart_toStartOf="@id/textview_detail_starring"
+                app:layout_constraintEnd_toStartOf="@id/textview_detail_rating"
+                app:layout_constraintTop_toBottomOf="@+id/textview_detail_starring" />
 
             <TextView
-                android:id="@+id/textView_detail_rating"
+                android:id="@+id/textview_detail_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/bs_small"
@@ -112,9 +117,9 @@
                 android:textSize="@dimen/bf_medium"
                 android:text="@string/rating_exemple"
                 android:textColor="@color/yellow"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView_detail_star"
-                app:layout_constraintStart_toEndOf="@+id/imageView_detail_star"
-                app:layout_constraintTop_toTopOf="@+id/imageView_detail_star" />
+                app:layout_constraintBottom_toBottomOf="@+id/imageview_detail_star"
+                app:layout_constraintStart_toEndOf="@+id/imageview_detail_star"
+                app:layout_constraintTop_toTopOf="@+id/imageview_detail_star" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -131,30 +136,32 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/bs_large"
+                android:textSize="@dimen/bf_large"
                 android:fontFamily="@font/raleway"
                 android:textColor="@color/green_01"
-                android:text="Sinopse"/>
+                android:text="@string/detail_overview_title"/>
 
             <TextView
-                android:id="@+id/textView_detail_overview"
+                android:id="@+id/textview_detail_overview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/bs_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/movie_header"
                 app:layout_constraintTop_toBottomOf="@+id/movie_header"
-                tools:text="Inteligente, criativa e determinada, Estella quer fazer um nome para si através de seus designs e acaba chamando a atenção da Baronesa Von Hellman. Entretanto, o relacionamento delas desencadeia um curso de eventos e revelações que fazem com que Estella abrace seu lado rebelde e se torne a Cruella, uma pessoa má, elegante e voltada para a vingança." />
+                tools:text="@string/detail_overview_content" />
 
             <TextView
+                android:id="@+id/textview_detail_cast_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/bs_large"
+                android:textSize="@dimen/bf_large"
                 android:fontFamily="@font/raleway"
                 android:textColor="@color/green_01"
-                android:text="Elenco"/>
+                android:text="@string/detail_cast_title"/>
+
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cast_recyclerview"
+                android:id="@+id/recyclerview_detail_cast"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:listitem="@layout/cast_item"

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import dev.cancio.popcorn.MyApplication
 import dev.cancio.popcorn.R
 import dev.cancio.popcorn.data.model.dataclass.Movie
@@ -23,9 +22,6 @@ class HomeFragment : Fragment(), HomePresenter.View {
     lateinit var presenter: HomePresenter
 
     override val binding: FragmentHomeBinding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
-
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var movieItemAdapter: MovieItemAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,13 +42,11 @@ class HomeFragment : Fragment(), HomePresenter.View {
 
     override fun inflateRecyclerView(movieList: List<Movie>) {
         val fragmentManager = activity?.supportFragmentManager
-        movieItemAdapter = MovieItemAdapter(this.requireContext(), movieList, fragmentManager)
-        recyclerView = binding.recyclerviewReleasesItems
         val manager = GridLayoutManager(this.context, 3)
 
-        recyclerView.apply {
-            layoutManager = manager
-            adapter = movieItemAdapter
+        binding.recyclerviewReleasesItems.also {
+            it.layoutManager = manager
+            it.adapter = MovieItemAdapter(this.requireContext(), movieList, fragmentManager)
         }
     }
 

@@ -15,4 +15,7 @@
     <string name="title_discovery">Descubra</string>
     <string name="director_name">Diretor: %1$s</string>
     <string name="starring_name">Estrelando: %1$s</string>
+    <string name="detail_overview_title">Sinopse</string>
+    <string name="detail_overview_content">Inteligente, criativa e determinada, Estella quer fazer um nome para si através de seus designs e acaba chamando a atenção da Baronesa Von Hellman. Entretanto, o relacionamento delas desencadeia um curso de eventos e revelações que fazem com que Estella abrace seu lado rebelde e se torne a Cruella, uma pessoa má, elegante e voltada para a vingança.</string>
+    <string name="detail_cast_title">Elenco</string>
 </resources>

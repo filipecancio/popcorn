@@ -4,12 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.cancio.popcorn.MyApplication
 import dev.cancio.popcorn.R
@@ -28,19 +25,12 @@ class DetailFragment : Fragment(), DetailPresenter.View {
     @Inject
     lateinit var presenter: DetailPresenter
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var castAdapter: CastItemAdapter
+    override val binding: FragmentDetailBinding by lazy {
+        FragmentDetailBinding.inflate(
+            layoutInflater
+        )
+    }
 
-    override val binding: FragmentDetailBinding by lazy { FragmentDetailBinding.inflate(layoutInflater)}
-
-    private var movieId: Int = 0
-    private lateinit var backdrop: ImageView
-    private lateinit var poster: ImageView
-    private lateinit var title: TextView
-    private lateinit var rating: TextView
-    private lateinit var overview: TextView
-    private lateinit var crew: TextView
-    private lateinit var cast: TextView
 
     companion object {
         @JvmStatic
@@ -54,9 +44,6 @@ class DetailFragment : Fragment(), DetailPresenter.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            movieId = it.getInt(MOVIE_EXTRA)
-        }
         MyApplication().appComponent.plus(DetailModule(this)).inject(this)
     }
 
@@ -71,49 +58,34 @@ class DetailFragment : Fragment(), DetailPresenter.View {
     override fun bindViews() {
 
         val movieId = arguments?.getSerializable(MOVIE_EXTRA) as Int
-
         presenter.apply {
             getCredit(movieId)
             getMovieDetail(movieId)
         }
-
     }
 
     override fun inflateRecyclerView(credit: Credit) {
-        castAdapter = CastItemAdapter(credit.cast)
-        binding.apply {
-            recyclerView = castRecyclerview
-            cast = textViewDetailStarring
-            crew =  textViewDetailDirector
-
-        }
-
-        cast.text = getString(R.string.starring_name,credit.cast[0].name)
-        crew.text = getString(R.string.director_name,credit.crew[0].name)
 
         val manager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+        binding.apply {
+            textviewDetailStarring.text =
+                getString(R.string.starring_name, credit.cast[0].name)
+            textviewDetailDirector.text = getString(R.string.director_name, credit.crew[0].name)
 
-        recyclerView.apply {
-            layoutManager = manager
-            adapter = castAdapter
+            recyclerviewDetailCast.layoutManager = manager
+            recyclerviewDetailCast.adapter = CastItemAdapter(credit.cast)
         }
     }
 
     override fun bindDetails(details: MovieDetail) {
-        binding.apply {
-            backdrop = imageViewDetailBackdrop
-            title = textViewDetailTitle
-            overview = textViewDetailOverview
-            poster = imageViewDetailPoster
-            rating = textViewDetailRating
+        binding.let {
+            Glide.with(this).load(details.backdrop).into(it.imageViewDetailPosterBackdrop)
+            Glide.with(this).load(details.poster).into(it.imageViewDetailPoster)
+
+            it.textviewDetailTitle.text = details.title
+            it.textviewDetailOverview.text = details.overview
+            it.textviewDetailRating.text = details.voteAverage.toString()
         }
-
-        Glide.with(this).load(details.backdrop).into(backdrop)
-        Glide.with(this).load(details.poster).into(poster)
-        title.text = details.title
-        overview.text = details.overview
-        rating.text = details.voteAverage.toString()
-
     }
 
 

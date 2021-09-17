@@ -14,8 +14,11 @@
     <string name="error_message">"The connection has failed"</string>
     <string name="new_releases">New Releases</string>
     <string name="item_name" translatable="false">Movie Title</string>
-    <string name="rating_exemple" translatable="false">8.9</string>
+    <string name="rating_exemple" translatable="false">0.0</string>
     <string name="title_discovery">Discover</string>
     <string name="director_name">Director: %1$s</string>
     <string name="starring_name">Starring: %1$s</string>
+    <string name="detail_overview_title">Overview</string>
+    <string name="detail_overview_content">In 1970s London amidst the punk rock revolution, a young grifter named Estella is determined to make a name for herself with her designs. She befriends a pair of young thieves who appreciate her appetite for mischief, and together they are able to build a life for themselves on the London streets. One day, Estella’s flair for fashion catches the eye of the Baroness von Hellman, a fashion legend who is devastatingly chic and terrifyingly haute. But their relationship sets in motion a course of events and revelations that will cause Estella to embrace her wicked side and become the raucous, fashionable and revenge-bent Cruella.</string>
+    <string name="detail_cast_title">Cast</string>
 </resources>
