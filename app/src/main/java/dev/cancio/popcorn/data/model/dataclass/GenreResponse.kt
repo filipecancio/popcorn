@@ -1,6 +1,6 @@
 package dev.cancio.popcorn.data.model.dataclass
 
-data class MovieGenre(
+data class GenreResponse(
     val id: Int,
     val name: String
 )

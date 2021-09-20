@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 
-data class Movie(
+data class MovieResponse(
     val id: Int,
     val title: String,
     val adult: Boolean,

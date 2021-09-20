@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.cancio.popcorn.data.model.dataclass.Movie
+import dev.cancio.popcorn.data.model.dataclass.MovieResponse
 import dev.cancio.popcorn.databinding.MovieItemBinding
 import dev.cancio.popcorn.ui.vh.MovieItemViewHolder
 
 class MovieItemAdapter(
     private val context: Context,
-    private val movieList: List<Movie>,
+    private val movieResponseList: List<MovieResponse>,
     private val fragmentManager: FragmentManager?
 ) : RecyclerView.Adapter<MovieItemViewHolder>() {
 
@@ -22,9 +22,9 @@ class MovieItemAdapter(
     }
 
     override fun onBindViewHolder(holder: MovieItemViewHolder, position: Int) {
-        val movie = movieList[position]
+        val movie = movieResponseList[position]
         holder.bind(movie)
     }
 
-    override fun getItemCount(): Int = movieList.size
+    override fun getItemCount(): Int = movieResponseList.size
 }

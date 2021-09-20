@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import dev.cancio.popcorn.MyApplication
 import dev.cancio.popcorn.R
-import dev.cancio.popcorn.data.model.dataclass.Movie
+import dev.cancio.popcorn.data.model.dataclass.MovieResponse
 import dev.cancio.popcorn.databinding.FragmentHomeBinding
 import dev.cancio.popcorn.di.HomeModule
 import dev.cancio.popcorn.presenter.HomePresenter
@@ -42,22 +42,22 @@ class HomeFragment : Fragment(), HomePresenter.View {
         presenter.getMoviesList()
     }
 
-    override fun inflateRecyclerView(movieList: List<Movie>) {
+    override fun inflateRecyclerView(movieResponseList: List<MovieResponse>) {
         val fragmentManager = activity?.supportFragmentManager
         val context = this.requireContext()
         val recyclerView = binding.recyclerviewReleasesItems
 
         with(recyclerView) {
             layoutManager = GridLayoutManager(context, 3)
-            adapter = MovieItemAdapter(context, movieList, fragmentManager)
+            adapter = MovieItemAdapter(context, movieResponseList, fragmentManager)
         }
     }
 
-    override fun inflateDiscoverPoster(movie: Movie){
+    override fun inflateDiscoverPoster(movieResponse: MovieResponse){
         val post = binding.imageviewDiscoverPost
-        post.load(movie.backdrop)
+        post.load(movieResponse.backdrop)
         post.setOnClickListener{
-            val newFragment = DetailFragment.newInstance(movie.id)
+            val newFragment = DetailFragment.newInstance(movieResponse.id)
             activity?.supportFragmentManager
                 ?.beginTransaction()
                 ?.replace(R.id.nav_host_fragment,newFragment)

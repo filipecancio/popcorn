@@ -10,9 +10,9 @@ data class MovieDetail(
     @SerializedName("backdrop_path")
     private val backdropPath: String,
     @SerializedName("belongs_to_collection")
-    private val collection: MovieCollection?,
+    private val collectionResponse: CollectionResponse?,
     val budget: Int,
-    val genres: List<MovieGenre>,
+    val genreResponses: List<GenreResponse>,
     val homepage: String,
     val id: Int,
     @SerializedName("imdb_id")
@@ -26,15 +26,15 @@ data class MovieDetail(
     @SerializedName("poster_path")
     private val posterPath: String,
     @SerializedName("production_companies")
-    private val companies: List<MovieCompany>,
+    private val companyResponses: List<CompanyResponse>,
     @SerializedName("production_countries")
-    private val countries: List<Country>,
+    private val countryResponses: List<CountryResponse>,
     @SerializedName("release_date")
     val releaseDate: String,
     val revenue: Int,
     val runtime: Int,
     @SerializedName("spoken_languages")
-    private val languages: List<Language>,
+    private val languageResponses: List<LanguageResponse>,
     val status: DetailStatus,
     val tagline: String,
     val title: String,

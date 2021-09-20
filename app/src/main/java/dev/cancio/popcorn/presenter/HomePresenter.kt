@@ -4,7 +4,7 @@ package dev.cancio.popcorn.presenter
 import dev.cancio.filmin.data.repository.MovieRepository
 import dev.cancio.popcorn.base.BasePresenter
 import dev.cancio.popcorn.base.BaseView
-import dev.cancio.popcorn.data.model.dataclass.Movie
+import dev.cancio.popcorn.data.model.dataclass.MovieResponse
 import javax.inject.Inject
 import kotlin.random.Random
 
@@ -28,14 +28,14 @@ class HomePresenter @Inject constructor(
         }
     }
 
-    private fun getRandomRelease(results: List<Movie>){
+    private fun getRandomRelease(results: List<MovieResponse>){
         val randomIndex = Random.nextInt(results.size);
         view.inflateDiscoverPoster(results[randomIndex])
     }
 
     interface View: BaseView{
-        fun inflateRecyclerView(movieList: List<Movie>)
-        fun inflateDiscoverPoster(movie: Movie)
+        fun inflateRecyclerView(movieResponseList: List<MovieResponse>)
+        fun inflateDiscoverPoster(movieResponse: MovieResponse)
         fun onError()
     }
 }

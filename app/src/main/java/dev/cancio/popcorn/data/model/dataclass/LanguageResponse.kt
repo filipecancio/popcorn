@@ -2,8 +2,10 @@ package dev.cancio.popcorn.data.model.dataclass
 
 import com.google.gson.annotations.SerializedName
 
-data class Country(
-    @SerializedName("iso_3166_1")
+data class LanguageResponse(
+    @SerializedName("iso_639_1")
     val id: String,
     val name: String,
+    @SerializedName("english_name")
+    val englishName: String,
 )

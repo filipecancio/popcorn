@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import dev.cancio.popcorn.BuildConfig
 import java.io.Serializable
 
-data class MovieCollection(
+data class CollectionResponse(
     val id: Int,
     val name: String,
     @SerializedName("poster_path")
