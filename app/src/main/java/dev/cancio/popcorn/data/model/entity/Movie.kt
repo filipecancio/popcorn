@@ -4,34 +4,31 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import dev.cancio.popcorn.BuildConfig
-import dev.cancio.popcorn.data.model.dataclass.CollectionResponse
-import dev.cancio.popcorn.data.model.enum.DetailStatus
 import java.io.Serializable
 
 @Entity
 data class Movie(
     @PrimaryKey(autoGenerate = false)
-    val id: Int,
-    val budget: Int,
-    val revenue: Int,
-    val runtime: Int,
-    val voteCount: Int,
-    val voteAverage: Double,
-    val popularity: Double,
-    val adult: Boolean,
-    val video: Boolean,
-    private val backdropPath: String,
-    val homepage: String,
-    val imdbId: String,
-    val originalLanguage: String,
-    val originalTitle: String,
-    val overview: String,
-    val releaseDate: String,
-    private val posterPath: String,
-    val tagline: String,
-    val title: String,
-    @Embedded val status: DetailStatus,
-    @Embedded private val collectionResponse: CollectionResponse?,
+    var id: Int,
+    var budget: Int,
+    var revenue: Int,
+    var runtime: Int,
+    var voteCount: Int,
+    var voteAverage: Double,
+    var popularity: Double,
+    var adult: Boolean,
+    var video: Boolean,
+    var backdropPath: String?,
+    var homepage: String?,
+    var imdbId: String?,
+    var originalLanguage: String?,
+    var originalTitle: String?,
+    var overview: String?,
+    var releaseDate: String,
+    var posterPath: String?,
+    var tagline: String?,
+    var title: String?,
+    @Embedded(prefix = "collection_") var collection: Collection?,
 ) : Serializable {
 
     val poster: String

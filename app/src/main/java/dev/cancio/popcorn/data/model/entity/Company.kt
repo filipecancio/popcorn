@@ -8,10 +8,10 @@ import java.io.Serializable
 @Entity
 data class Company(
     @PrimaryKey(autoGenerate = false)
-    val id: Int,
-    val name: String,
-    private val logoPath: String,
-    private val country: String,
+    var id: Int,
+    var name: String,
+    var logoPath: String,
+    var country: String,
 ): Serializable {
     val logo: String
         get() = "${BuildConfig.ASSETS_URL}$logoPath"

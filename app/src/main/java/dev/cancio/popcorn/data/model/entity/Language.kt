@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class Language(
     @PrimaryKey(autoGenerate = false)
-    val id: String,
-    val name: String,
-    val englishName: String,
+    var id: String,
+    var name: String,
+    var englishName: String,
 )
 
