@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.cancio.popcorn.R
-import dev.cancio.popcorn.data.model.dataclass.MovieResponse
+import dev.cancio.popcorn.data.model.entity.Movie
 import dev.cancio.popcorn.databinding.MovieItemBinding
 import dev.cancio.popcorn.ui.fragment.DetailFragment
 
@@ -15,13 +15,13 @@ class MovieItemViewHolder(
     private val fragmentManager: FragmentManager?
 ) : View.OnClickListener, RecyclerView.ViewHolder(itemMovieBinding.root) {
 
-    private lateinit var movieResponse: MovieResponse
+    private lateinit var movieResponse: Movie
 
     init {
         itemMovieBinding.root.setOnClickListener(this)
     }
 
-    fun bind(movieResponse: MovieResponse) {
+    fun bind(movieResponse: Movie) {
         this.movieResponse = movieResponse
         with(itemMovieBinding) {
             imageViewPoster.load(movieResponse.poster)

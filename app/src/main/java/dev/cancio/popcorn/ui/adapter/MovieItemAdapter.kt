@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.cancio.popcorn.data.model.dataclass.MovieResponse
+import dev.cancio.popcorn.data.model.entity.Movie
 import dev.cancio.popcorn.databinding.MovieItemBinding
 import dev.cancio.popcorn.ui.vh.MovieItemViewHolder
 
 class MovieItemAdapter(
     private val context: Context,
-    private val movieResponseList: List<MovieResponse>,
+    private val movieResponseList: List<Movie>,
     private val fragmentManager: FragmentManager?
 ) : RecyclerView.Adapter<MovieItemViewHolder>() {
 

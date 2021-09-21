@@ -45,10 +45,11 @@ class HomeFragment : BaseFragment(), HomePresenter.View {
         val fragmentManager = activity?.supportFragmentManager
         val context = this.requireContext()
         val recyclerView = binding.recyclerviewReleasesItems
+        val movieList = bindResponse(movieResponseList)
 
         with(recyclerView) {
             layoutManager = GridLayoutManager(context, 3)
-            adapter = MovieItemAdapter(context, movieResponseList, fragmentManager)
+            adapter = MovieItemAdapter(context, movieList, fragmentManager)
         }
     }
 
@@ -65,6 +66,8 @@ class HomeFragment : BaseFragment(), HomePresenter.View {
     }
 
     private fun ImageView.load(path: String) = Glide.with(this).load(path).into(this)
+
+    private fun bindResponse(movieList: List<MovieResponse>) = movieList.map { it.toEntity() }
 
     override fun onError() {
         Toast.makeText(this.context, getString(R.string.error_message), Toast.LENGTH_SHORT).show()

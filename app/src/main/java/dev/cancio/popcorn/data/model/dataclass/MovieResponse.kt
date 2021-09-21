@@ -1,6 +1,7 @@
 package dev.cancio.popcorn.data.model.dataclass
 
 import com.google.gson.annotations.SerializedName
+import dev.cancio.popcorn.data.model.entity.Movie
 import java.io.Serializable
 
 
@@ -38,4 +39,15 @@ data class MovieResponse(
     companion object {
         private const val BASE_URL = "https://image.tmdb.org/t/p/original"
     }
+
+    fun toEntity() = Movie(
+        backdropPath = this.backdropPath,
+        id = this.id,
+        overview = this.overview,
+        popularity = this.popularity,
+        posterPath = this.posterPath,
+        title = this.title,
+        voteAverage = this.voteAverage,
+        voteCount = this.voteCount
+    )
 }
