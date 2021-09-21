@@ -54,7 +54,6 @@ data class MovieDetail(
 
     fun toEntity() = Movie(
         backdropPath = this.backdropPath,
-        collection = this.collectionResponse?.toEntity(),
         id = this.id,
         overview = this.overview,
         popularity = this.popularity,

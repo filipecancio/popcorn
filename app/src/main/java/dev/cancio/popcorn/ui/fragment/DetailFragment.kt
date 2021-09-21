@@ -64,7 +64,7 @@ class DetailFragment : BaseFragment(), DetailPresenter.View {
         }
 
         binding.buttonLike.setOnClickListener {
-
+            presenter.likeMovie()
         }
     }
 
