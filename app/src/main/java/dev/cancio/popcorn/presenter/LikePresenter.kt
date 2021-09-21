@@ -1,6 +1,5 @@
 package dev.cancio.popcorn.presenter
 
-import android.util.Log
 import dev.cancio.popcorn.base.BasePresenter
 import dev.cancio.popcorn.base.BaseView
 import dev.cancio.popcorn.data.model.entity.Movie
@@ -18,11 +17,9 @@ class LikePresenter @Inject constructor(
 
     fun getLikedMovies(){
         launch {
-            Log.v("coroutines", "foi")
             val movieList = likeMovieRepository
                 .getLikedMovies()
                 .flattenToList()
-            Log.v("banco de dados", movieList.toString())
             view.inflateRecyclerView(movieList)
         }
     }
