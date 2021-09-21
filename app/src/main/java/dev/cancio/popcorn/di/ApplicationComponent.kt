@@ -16,6 +16,7 @@ import javax.inject.Singleton
 interface ApplicationComponent: MembersInjector<PopcornApplication> {
     fun plus(module: HomeModule): HomeSubComponent
     fun plus(module: DetailModule): DetailSubComponent
+    fun plus(module: LikeModule): LikeSubComponent
 
     @Component.Builder
     interface Builder {

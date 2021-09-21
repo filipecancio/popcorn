@@ -8,12 +8,26 @@
     tools:context=".ui.fragment.LikeFragment">
 
     <TextView
+        android:id="@+id/textview_like_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fragment_title_like"
+        android:fontFamily="@font/raleway"
+        android:paddingBottom="@dimen/bs_small"
+        android:textColor="@color/green_01"
+        android:textSize="@dimen/bf_large"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_like_movies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textview_like_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/movie_item"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
