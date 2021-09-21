@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
-import dev.cancio.popcorn.MyApplication
+import dev.cancio.popcorn.PopCornApplication
 import dev.cancio.popcorn.R
 import dev.cancio.popcorn.data.model.dataclass.MovieResponse
 import dev.cancio.popcorn.databinding.FragmentHomeBinding
@@ -27,7 +27,7 @@ class HomeFragment : Fragment(), HomePresenter.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        MyApplication().appComponent.plus(HomeModule(this)).inject(this)
+        PopCornApplication().appComponent.plus(HomeModule(this)).inject(this)
     }
 
     override fun onCreateView(

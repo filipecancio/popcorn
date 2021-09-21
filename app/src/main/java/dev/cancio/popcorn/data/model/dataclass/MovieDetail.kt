@@ -2,47 +2,48 @@ package dev.cancio.popcorn.data.model.dataclass
 
 import com.google.gson.annotations.SerializedName
 import dev.cancio.popcorn.BuildConfig
+import dev.cancio.popcorn.data.model.entity.Movie
 import dev.cancio.popcorn.data.model.enum.DetailStatus
 import java.io.Serializable
 
 data class MovieDetail(
-    val adult: Boolean,
+    var adult: Boolean,
     @SerializedName("backdrop_path")
-    private val backdropPath: String,
+    var backdropPath: String,
     @SerializedName("belongs_to_collection")
-    private val collectionResponse: CollectionResponse?,
-    val budget: Int,
-    val genreResponses: List<GenreResponse>,
-    val homepage: String,
-    val id: Int,
+    var collectionResponse: CollectionResponse?,
+    var budget: Int,
+    var genreResponses: List<GenreResponse>,
+    var homepage: String,
+    var id: Int,
     @SerializedName("imdb_id")
-    val imdbId: String,
+    var imdbId: String,
     @SerializedName("original_language")
-    val originalLanguage: String,
+    var originalLanguage: String,
     @SerializedName("original_title")
-    val originalTitle: String,
-    val overview: String,
-    val popularity: Double,
+    var originalTitle: String,
+    var overview: String,
+    var popularity: Double,
     @SerializedName("poster_path")
-    private val posterPath: String,
+    var posterPath: String,
     @SerializedName("production_companies")
-    private val companyResponses: List<CompanyResponse>,
+    var companyResponses: List<CompanyResponse>,
     @SerializedName("production_countries")
-    private val countryResponses: List<CountryResponse>,
+    var countryResponses: List<CountryResponse>,
     @SerializedName("release_date")
-    val releaseDate: String,
-    val revenue: Int,
-    val runtime: Int,
+    var releaseDate: String,
+    var revenue: Int,
+    var runtime: Int,
     @SerializedName("spoken_languages")
-    private val languageResponses: List<LanguageResponse>,
-    val status: DetailStatus,
-    val tagline: String,
-    val title: String,
+    var languageResponses: List<LanguageResponse>,
+    var status: DetailStatus,
+    var tagline: String,
+    var title: String,
     val video: Boolean,
     @SerializedName("vote_average")
-    val voteAverage: Double,
+    var voteAverage: Double =0.0,
     @SerializedName("voteCount")
-    val voteCount: Int,
+    var voteCount: Int =0,
 ): Serializable {
 
     val poster: String
@@ -50,4 +51,16 @@ data class MovieDetail(
 
     val backdrop: String
         get() = "${BuildConfig.ASSETS_URL}$backdropPath"
+
+    fun toEntity() = Movie(
+        backdropPath = this.backdropPath,
+        collection = this.collectionResponse?.toEntity(),
+        id = this.id,
+        overview = this.overview,
+        popularity = this.popularity,
+        posterPath = this.posterPath,
+        title = this.title,
+        voteAverage = this.voteAverage,
+        voteCount = this.voteCount
+    )
 }

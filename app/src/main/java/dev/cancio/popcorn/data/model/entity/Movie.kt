@@ -10,23 +10,12 @@ import java.io.Serializable
 data class Movie(
     @PrimaryKey(autoGenerate = false)
     var id: Int,
-    var budget: Int,
-    var revenue: Int,
-    var runtime: Int,
     var voteCount: Int,
     var voteAverage: Double,
     var popularity: Double,
-    var adult: Boolean,
-    var video: Boolean,
     var backdropPath: String?,
-    var homepage: String?,
-    var imdbId: String?,
-    var originalLanguage: String?,
-    var originalTitle: String?,
     var overview: String?,
-    var releaseDate: String,
     var posterPath: String?,
-    var tagline: String?,
     var title: String?,
     @Embedded(prefix = "collection_") var collection: Collection?,
 ) : Serializable {

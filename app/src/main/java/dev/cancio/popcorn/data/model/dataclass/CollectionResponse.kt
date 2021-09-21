@@ -2,6 +2,7 @@ package dev.cancio.popcorn.data.model.dataclass
 
 import com.google.gson.annotations.SerializedName
 import dev.cancio.popcorn.BuildConfig
+import dev.cancio.popcorn.data.model.entity.Collection
 import java.io.Serializable
 
 data class CollectionResponse(
@@ -19,4 +20,10 @@ data class CollectionResponse(
     val backdrop: String
         get() = "${BuildConfig.ASSETS_URL}$backdropPath"
 
+    fun toEntity() = Collection(
+        id,
+        name,
+        posterPath,
+        backdropPath
+    )
 }

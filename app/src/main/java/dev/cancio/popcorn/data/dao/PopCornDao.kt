@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.Flow
 interface PopCornDao {
 
     @Insert
-    suspend fun likeMovie(movie: Movie)
+    suspend fun createMovie(movie: Movie)
 
     @Query("DELETE FROM movie WHERE id = :id")
-    suspend fun unLikeMovie(id:Int)
+    suspend fun removeMovie(id:Int)
 
     @Query("SELECT * FROM Movie")
     fun getMovies(): Flow<List<Movie>>

@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import dev.cancio.popcorn.MyApplication
+import dev.cancio.popcorn.PopCornApplication
 import dev.cancio.popcorn.R
 import dev.cancio.popcorn.data.model.dataclass.Credit
 import dev.cancio.popcorn.data.model.dataclass.MovieDetail
@@ -45,7 +45,7 @@ class DetailFragment : Fragment(), DetailPresenter.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        MyApplication().appComponent.plus(DetailModule(this)).inject(this)
+        PopCornApplication().appComponent.plus(DetailModule(this)).inject(this)
     }
 
     override fun onCreateView(
@@ -62,6 +62,10 @@ class DetailFragment : Fragment(), DetailPresenter.View {
         presenter.apply {
             getCredit(movieId)
             getMovieDetail(movieId)
+        }
+
+        binding.buttonLike.setOnClickListener {
+
         }
     }
 
