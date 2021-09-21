@@ -5,15 +5,15 @@ import dev.cancio.popcorn.di.ApplicationComponent
 import dev.cancio.popcorn.di.DaggerApplicationComponent
 
 
-class PopCornApplication: Application() {
+class PopcornApplication: Application() {
 
-    val appComponent: ApplicationComponent by lazy {
+    val applicationComponent: ApplicationComponent by lazy {
         buildComponent()
     }
 
     override fun onCreate() {
         super.onCreate()
-        appComponent.injectMembers(this)
+        applicationComponent.injectMembers(this)
     }
 
     fun buildComponent(): ApplicationComponent =

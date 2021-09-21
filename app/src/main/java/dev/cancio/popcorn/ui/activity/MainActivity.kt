@@ -2,15 +2,15 @@ package dev.cancio.popcorn.ui.activity
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dev.cancio.popcorn.R
+import dev.cancio.popcorn.base.BaseActivity
 import dev.cancio.popcorn.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     lateinit var navController: NavController
     lateinit var bottomNavigationView: BottomNavigationView

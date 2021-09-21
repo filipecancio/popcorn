@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import dev.cancio.popcorn.PopCornApplication
 import dev.cancio.popcorn.R
+import dev.cancio.popcorn.base.BaseFragment
 import dev.cancio.popcorn.data.model.dataclass.Credit
 import dev.cancio.popcorn.data.model.dataclass.MovieDetail
 import dev.cancio.popcorn.databinding.FragmentDetailBinding
@@ -21,7 +20,7 @@ import javax.inject.Inject
 
 private const val MOVIE_EXTRA = "MOVIE"
 
-class DetailFragment : Fragment(), DetailPresenter.View {
+class DetailFragment : BaseFragment(), DetailPresenter.View {
 
     @Inject
     lateinit var presenter: DetailPresenter
@@ -45,7 +44,7 @@ class DetailFragment : Fragment(), DetailPresenter.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        PopCornApplication().appComponent.plus(DetailModule(this)).inject(this)
+        getApplicationComponent().plus(DetailModule(this)).inject(this)
     }
 
     override fun onCreateView(

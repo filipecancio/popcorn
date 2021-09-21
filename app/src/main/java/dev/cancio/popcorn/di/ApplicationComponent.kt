@@ -3,7 +3,8 @@ package dev.cancio.popcorn.di
 import dagger.BindsInstance
 import dagger.Component
 import dagger.MembersInjector
-import dev.cancio.popcorn.PopCornApplication
+import dev.cancio.popcorn.PopcornApplication
+import javax.inject.Singleton
 
 @Component(
     modules = [
@@ -11,14 +12,15 @@ import dev.cancio.popcorn.PopCornApplication
         RetrofitModule::class
     ]
 )
-interface ApplicationComponent: MembersInjector<PopCornApplication> {
+@Singleton
+interface ApplicationComponent: MembersInjector<PopcornApplication> {
     fun plus(module: HomeModule): HomeSubComponent
     fun plus(module: DetailModule): DetailSubComponent
 
     @Component.Builder
     interface Builder {
         @BindsInstance
-        fun popCornApplication(app: PopCornApplication): Builder
+        fun popCornApplication(app: PopcornApplication): Builder
 
         fun build(): ApplicationComponent
     }

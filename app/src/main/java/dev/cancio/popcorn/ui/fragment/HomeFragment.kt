@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
-import dev.cancio.popcorn.PopCornApplication
 import dev.cancio.popcorn.R
+import dev.cancio.popcorn.base.BaseFragment
 import dev.cancio.popcorn.data.model.dataclass.MovieResponse
 import dev.cancio.popcorn.databinding.FragmentHomeBinding
 import dev.cancio.popcorn.di.HomeModule
@@ -18,7 +17,7 @@ import dev.cancio.popcorn.presenter.HomePresenter
 import dev.cancio.popcorn.ui.adapter.MovieItemAdapter
 import javax.inject.Inject
 
-class HomeFragment : Fragment(), HomePresenter.View {
+class HomeFragment : BaseFragment(), HomePresenter.View {
 
     @Inject
     lateinit var presenter: HomePresenter
@@ -27,7 +26,7 @@ class HomeFragment : Fragment(), HomePresenter.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        PopCornApplication().appComponent.plus(HomeModule(this)).inject(this)
+        getApplicationComponent().plus(HomeModule(this)).inject(this)
     }
 
     override fun onCreateView(
