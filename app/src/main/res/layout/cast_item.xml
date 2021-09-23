@@ -5,7 +5,8 @@
     android:layout_width="@dimen/movie_item_image_width"
     android:layout_height="@dimen/movie_item_image_height"
     android:contentDescription="@string/poster_description"
-    android:src="@drawable/poster"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:src="@drawable/poster"
     app:shapeAppearanceOverlay="@style/RoundedSquare">
 
 </com.google.android.material.imageview.ShapeableImageView>
