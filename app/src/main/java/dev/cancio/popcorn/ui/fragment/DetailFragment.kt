@@ -95,11 +95,13 @@ class DetailFragment : BaseFragment(), DetailPresenter.View {
     }
 
     override fun setIsLikedFab(isLiked: Boolean) {
-        with(binding){
-            if(isLiked){
-                buttonLike.backgroundTintList = ColorStateList.valueOf(getColor(requireContext(),R.color.green_01))
-            }else{
-                buttonLike.backgroundTintList = ColorStateList.valueOf(getColor(requireContext(),R.color.grey_1))
+        with(binding) {
+            if (isLiked) {
+                buttonLike.backgroundTintList =
+                    ColorStateList.valueOf(getColor(requireContext(), R.color.green_01))
+            } else {
+                buttonLike.backgroundTintList =
+                    ColorStateList.valueOf(getColor(requireContext(), R.color.grey_1))
             }
         }
     }
