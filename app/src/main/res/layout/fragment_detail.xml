@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/imageView_detail_poster_backdrop"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_width="@dimen/bs_none"
+            android:layout_height="@dimen/movie_backdrop_height"
             android:adjustViewBounds="true"
             android:contentDescription="@string/poster_description"
             android:scaleType="centerCrop"
@@ -26,9 +26,9 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/linearlayout_detail_poster_colorlayer"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:id="@+id/linearlayout_detail_poster_color_layer"
+            android:layout_width="@dimen/bs_none"
+            android:layout_height="@dimen/movie_backdrop_height"
             android:background="@color/black_80"
             android:orientation="horizontal"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/bs_small"
                 android:fontFamily="@font/raleway"
-                android:text="@string/rating_exemple"
+                android:text="@string/rating_label"
                 android:textColor="@color/yellow"
                 android:textSize="@dimen/bf_medium"
                 app:layout_constraintBottom_toBottomOf="@+id/imageview_detail_star"
@@ -124,22 +124,24 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/button_like"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/bs_extra_large"
+                android:layout_height="@dimen/bs_extra_large"
                 android:layout_margin="@dimen/bs_smaller"
+                android:background="@color/grey_1"
+                android:contentDescription="@string/like_title"
                 android:src="@drawable/ic_heart_0"
                 android:tint="@color/grey_1"
-                android:background="@color/grey_1"
-                app:fabCustomSize="50dp"
+                app:fabCustomSize="@dimen/bs_extra_large"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_detail_starring"
                 tools:tint="@color/grey_1" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="@dimen/bs_none"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="@dimen/bs_large"

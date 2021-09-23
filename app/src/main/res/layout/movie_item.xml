@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="@dimen/movie_item_width"
     android:layout_height="wrap_content"
-    android:padding="@dimen/bs_smaller"
-    android:background="@drawable/movie_item_shape">
+    android:background="@drawable/movie_item_shape"
+    android:padding="@dimen/bs_smaller">
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView_poster"
         android:layout_width="@dimen/movie_item_image_width"
         android:layout_height="@dimen/movie_item_image_height"
         android:contentDescription="@string/poster_description"
-        app:shapeAppearanceOverlay="@style/RoundedSquare"
+        android:scaleType="centerCrop"
         android:src="@drawable/poster"
         app:layout_constraintStart_toStartOf="parent"
-        android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedSquare" />
 
 
     <TextView
@@ -23,10 +24,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/bs_small"
         android:fontFamily="@font/raleway"
-        android:textSize="@dimen/bf_medium"
-        android:text="@string/item_name"
         android:maxLines="2"
+        android:text="@string/item_name"
         android:textColor="@color/green_01"
+        android:textSize="@dimen/bf_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_poster" />
@@ -35,12 +36,12 @@
         android:id="@+id/imageView_star"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_round_star_24"
         android:layout_marginTop="@dimen/bs_smaller"
-        app:layout_constraintHorizontal_chainStyle="packed"
         android:contentDescription="@string/star_rating"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_round_star_24"
         app:layout_constraintEnd_toStartOf="@id/textView_rating"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_title" />
 
     <TextView
@@ -49,9 +50,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/bs_small"
         android:fontFamily="@font/raleway"
-        android:textSize="@dimen/bf_medium"
-        android:text="@string/rating_exemple"
+        android:text="@string/rating_label"
         android:textColor="@color/yellow"
+        android:textSize="@dimen/bf_medium"
         app:layout_constraintBottom_toBottomOf="@+id/imageView_star"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView_star"
