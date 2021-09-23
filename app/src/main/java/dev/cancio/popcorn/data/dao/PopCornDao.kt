@@ -15,6 +15,9 @@ interface PopCornDao {
     @Query("DELETE FROM movie WHERE id = :id")
     suspend fun removeMovie(id:Int)
 
+    @Query("SELECT * FROM Movie WHERE id = :id")
+    suspend fun getMovie(id:Int): Movie?
+
     @Query("SELECT * FROM Movie")
-    suspend fun getMovies(): List<Movie>
+    suspend fun getMovieList(): List<Movie>
 }

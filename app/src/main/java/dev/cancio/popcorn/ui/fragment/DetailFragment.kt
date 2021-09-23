@@ -1,11 +1,13 @@
 package dev.cancio.popcorn.ui.fragment
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import dev.cancio.popcorn.R
@@ -61,10 +63,11 @@ class DetailFragment : BaseFragment(), DetailPresenter.View {
         presenter.apply {
             getCredit(movieId)
             getMovieDetail(movieId)
+            getLikedState(movieId)
         }
 
         binding.buttonLike.setOnClickListener {
-            presenter.likeMovie()
+            presenter.setLikeOnMovie()
         }
     }
 
@@ -88,6 +91,16 @@ class DetailFragment : BaseFragment(), DetailPresenter.View {
             textviewDetailTitle.text = details.title
             textviewDetailOverview.text = details.overview
             textviewDetailRating.text = details.voteAverage.toString()
+        }
+    }
+
+    override fun setIsLikedFab(isLiked: Boolean) {
+        with(binding){
+            if(isLiked){
+                buttonLike.backgroundTintList = ColorStateList.valueOf(getColor(requireContext(),R.color.green_01))
+            }else{
+                buttonLike.backgroundTintList = ColorStateList.valueOf(getColor(requireContext(),R.color.grey_1))
+            }
         }
     }
 

@@ -10,51 +10,70 @@ import javax.inject.Inject
 
 class DetailPresenter @Inject constructor(
     private val view: View,
-    private val movieRepository : MovieRepository,
+    private val movieRepository: MovieRepository,
     private val likeMovieRepository: LikeMovieRepository
 ) : BasePresenter<DetailPresenter.View>(view) {
 
     private lateinit var movieDetail: MovieDetail
     private lateinit var credit: Credit
+    private var isLiked: Boolean = false
 
 
-    fun getCredit(movieId: Int){
+    fun getCredit(movieId: Int) {
         launch {
             val response = movieRepository.getMovieCredits(movieId)
-            if(response.isSuccessful){
+            if (response.isSuccessful) {
                 val creditResponse = response.body()
                 creditResponse?.apply {
                     credit = this
                     view.inflateRecyclerView(this)
                 }
-            }else{
-                view.onError()
-            }
-        }
-    }
-    fun getMovieDetail(movieId: Int){
-        launch {
-            val response = movieRepository.getMovieDetail(movieId)
-            if(response.isSuccessful){
-                val detailResponse = response.body()
-                detailResponse?.apply {
-                    movieDetail = this
-                    view.bindDetails(this)
-                }
-            }else{
+            } else {
                 view.onError()
             }
         }
     }
 
-    fun likeMovie(){
+    fun getMovieDetail(movieId: Int) {
+        launch {
+            val response = movieRepository.getMovieDetail(movieId)
+            if (response.isSuccessful) {
+                val detailResponse = response.body()
+                detailResponse?.apply {
+                    movieDetail = this
+                    view.bindDetails(this)
+                }
+            } else {
+                view.onError()
+            }
+        }
+    }
+
+    fun getLikedState(movieId: Int) {
+        launch {
+            isLiked = likeMovieRepository.getMovie(movieId) != null
+            view.setIsLikedFab(isLiked)
+        }
+    }
+
+    fun setLikeOnMovie() {
+        if (isLiked) {
+            unlikeMovie()
+        } else {
+            likeMovie()
+        }
+        isLiked = !isLiked
+        view.setIsLikedFab(isLiked)
+    }
+
+    private fun likeMovie() {
         launch {
             val movie = movieDetail.toEntity()
             likeMovieRepository.likeMovie(movie)
         }
     }
 
-    fun unlikeMovie(){
+    private fun unlikeMovie() {
         launch {
             val movieId = movieDetail.id
             likeMovieRepository.unlikeMovie(movieId)
@@ -64,6 +83,7 @@ class DetailPresenter @Inject constructor(
     interface View : BaseView {
         fun bindDetails(details: MovieDetail)
         fun inflateRecyclerView(credit: Credit)
+        fun setIsLikedFab(isLiked: Boolean)
         fun onError()
     }
 }

@@ -8,7 +8,9 @@ class LikeMovieRepository @Inject constructor(
     private val popCornDao: PopCornDao
 ) {
 
-    suspend fun getLikedMovies() = popCornDao.getMovies()
+    suspend fun getLikedMovies() = popCornDao.getMovieList()
+
+    suspend fun getMovie(movieId: Int) = popCornDao.getMovie(movieId)
 
     suspend fun likeMovie(movie: Movie) = popCornDao.createMovie(movie)
 
