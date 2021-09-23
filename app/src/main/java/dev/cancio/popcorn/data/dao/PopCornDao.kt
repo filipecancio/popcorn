@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import dev.cancio.popcorn.data.model.entity.Movie
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PopCornDao {
@@ -17,6 +16,5 @@ interface PopCornDao {
     suspend fun removeMovie(id:Int)
 
     @Query("SELECT * FROM Movie")
-    fun getMovies(): Flow<List<Movie>>
-
+    suspend fun getMovies(): List<Movie>
 }
