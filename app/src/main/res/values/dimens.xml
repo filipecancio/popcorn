@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bs_none">0dp</dimen>
+    <dimen name="bs_smaller">6dp</dimen>
+    <dimen name="bs_small">8dp</dimen>
+    <dimen name="bs_medium">16dp</dimen>
+    <dimen name="bs_bottom_bar">20dp</dimen>
+    <dimen name="bs_big">24dp</dimen>
+    <dimen name="bs_large">28dp</dimen>
+    <dimen name="bs_extra_large">50dp</dimen>
+
+    <dimen name="bf_none">0sp</dimen>
+    <dimen name="bf_smaller">6sp</dimen>
+    <dimen name="bf_small">8sp</dimen>
+    <dimen name="bf_medium">16sp</dimen>
+    <dimen name="bf_bottom_bar">20sp</dimen>
+    <dimen name="bf_big">24sp</dimen>
+    <dimen name="bf_large">28sp</dimen>
+
+
+    <dimen name="movie_item_width">118dp</dimen>
+    <dimen name="movie_item_image_width">102dp</dimen>
+    <dimen name="movie_item_image_height">138dp</dimen>
+
+    <dimen name="movie_backdrop_width">200dp</dimen>
+    <dimen name="movie_backdrop_height">200dp</dimen>
+</resources>

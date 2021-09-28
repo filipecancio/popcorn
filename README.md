@@ -1,11 +1,13 @@
-![Capa (1)](https://user-images.githubusercontent.com/13178261/130247332-b461fc1c-acf5-464c-bd14-8fb15be3f782.png)
+![Capa (1)](https://user-images.githubusercontent.com/13178261/132895308-3ebb1678-14f1-48ca-a693-da8ea3d220b4.png)
 ![CI on main](https://github.com/filipecancio/popcorn/actions/workflows/main_build.yml/badge.svg?branch=main)
 
 
 
 ## About
 Popcorn is a TMDB catalog you can use to view all the best movies on demand, whether online or in theaters. For now the only feature that we have is to see a list of movies and your details when you select a movie.
-![Capa (2)](https://user-images.githubusercontent.com/13178261/130252684-4b2569e4-eb58-411f-acaa-075db947af6e.png)
+
+![Group 6](https://user-images.githubusercontent.com/13178261/135135982-a883b267-c853-44ef-9a48-8390d4671a99.png)
+
 
 ## Git Structure
 The popocorn project it's being done with two archtectures: MVP (Model - View - Presenter) and MVVM (Model - View - ViewModel), represented on the respective branches: [feat-mvp](https://github.com/filipecancio/popcorn/tree/feat-mvp) [feat-mvvm](https://github.com/filipecancio/popcorn/tree/feat-mvvm). All the general implementations will be maded on the [main](https://github.com/filipecancio/popcorn) branch. So, if you want to play using a specific achitecture, just clone the project in the wanted branch.

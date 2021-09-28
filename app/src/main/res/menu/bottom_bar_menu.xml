@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/home_item"
-        android:title="@string/bottom_bar_item_home"
-        android:icon="@drawable/ic_outline_chair"/>
+        android:id="@+id/likeFragment"
+        android:title="@string/fragment_title_like"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_weekend"/>
+    <item
+        android:id="@+id/searchFragment"
+        android:title="@string/fragment_title_search"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_search"/>
+    <item
+        android:id="@+id/homeFragment"
+        android:title="@string/fragment_title_home"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_fire"/>
+    <item
+        android:id="@+id/globeFragment"
+        android:title="@string/fragment_title_globe"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_globe"/>
+    <item
+        android:id="@+id/profileFragment"
+        android:title="@string/fragment_title_profile"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_person"/>
 </menu>
