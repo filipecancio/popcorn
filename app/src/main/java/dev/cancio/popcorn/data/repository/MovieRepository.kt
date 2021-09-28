@@ -23,4 +23,8 @@ class MovieRepository @Inject constructor(
     suspend fun getMovieCredits(movieId: Int): Response<Credit> {
         return movieService.getMovieCredits(movieId).awaitResponse()
     }
+
+    suspend fun getMovieSearch(movieName: String): Response<MoviePagination> {
+        return movieService.getMovieSearch(movieName).awaitResponse()
+    }
 }

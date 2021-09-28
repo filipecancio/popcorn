@@ -17,6 +17,7 @@ interface ApplicationComponent: MembersInjector<PopcornApplication> {
     fun plus(module: HomeModule): HomeSubComponent
     fun plus(module: DetailModule): DetailSubComponent
     fun plus(module: LikeModule): LikeSubComponent
+    fun plus(module: SearchModule): SearchSubComponent
 
     @Component.Builder
     interface Builder {

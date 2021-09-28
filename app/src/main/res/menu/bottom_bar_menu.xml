@@ -7,7 +7,7 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_weekend"/>
     <item
-        android:id="@+id/noneFragment"
+        android:id="@+id/searchFragment"
         android:title="@string/fragment_title_search"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_search"/>
