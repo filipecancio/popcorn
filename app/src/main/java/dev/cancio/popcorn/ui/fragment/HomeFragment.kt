@@ -13,16 +13,17 @@ import dev.cancio.popcorn.base.BaseFragment
 import dev.cancio.popcorn.data.model.dataclass.MovieResponse
 import dev.cancio.popcorn.databinding.FragmentHomeBinding
 import dev.cancio.popcorn.di.HomeModule
-import dev.cancio.popcorn.presenter.HomePresenter
 import dev.cancio.popcorn.ui.adapter.MovieItemAdapter
+import dev.cancio.popcorn.viewmodel.HomeViewModel
 import javax.inject.Inject
 
-class HomeFragment : BaseFragment(), HomePresenter.View {
+class HomeFragment : BaseFragment() {
 
     @Inject
-    lateinit var presenter: HomePresenter
+    lateinit var viewModel: HomeViewModel
 
-    override val binding: FragmentHomeBinding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
+    val binding: FragmentHomeBinding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,11 +38,20 @@ class HomeFragment : BaseFragment(), HomePresenter.View {
         return binding.root
     }
 
-    override fun bindViews() {
-        presenter.getMoviesList()
+    private fun bindViews() {
+        viewModel.getMoviesList()
+        viewModel.movieList.observe(viewLifecycleOwner, {
+            inflateRecyclerView(it)
+        })
+        viewModel.errorMessage.observe(viewLifecycleOwner, {
+            onError()
+        })
+        viewModel.tredingMovie.observe(viewLifecycleOwner,{
+            inflateDiscoverPoster(it)
+        })
     }
 
-    override fun inflateRecyclerView(movieResponseList: List<MovieResponse>) {
+    private fun inflateRecyclerView(movieResponseList: List<MovieResponse>) {
         val fragmentManager = activity?.supportFragmentManager
         val context = this.requireContext()
         val recyclerView = binding.recyclerviewReleasesItems
@@ -53,7 +63,7 @@ class HomeFragment : BaseFragment(), HomePresenter.View {
         }
     }
 
-    override fun inflateDiscoverPoster(movieResponse: MovieResponse){
+    private fun inflateDiscoverPoster(movieResponse: MovieResponse){
         val post = binding.imageviewDiscoverPost
         post.load(movieResponse.backdrop)
         post.setOnClickListener{
@@ -69,7 +79,7 @@ class HomeFragment : BaseFragment(), HomePresenter.View {
 
     private fun bindResponse(movieList: List<MovieResponse>) = movieList.map { it.toEntity() }
 
-    override fun onError() {
+    private fun onError() {
         Toast.makeText(this.context, getString(R.string.error_message), Toast.LENGTH_SHORT).show()
     }
 
